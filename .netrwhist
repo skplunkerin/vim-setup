@@ -1,0 +1,11 @@
+let g:netrw_dirhistmax  =10
+let g:netrw_dirhist_cnt =9
+let g:netrw_dirhist_1='/Users/reynolds87chris/htdocs/anime_banzai/Website/portal'
+let g:netrw_dirhist_2='/Users/reynolds87chris/htdocs/SchoolSites/autocompleter'
+let g:netrw_dirhist_3='/Users/reynolds87chris/Desktop/HMDATA/Iris1_and_portal_db_exports'
+let g:netrw_dirhist_4='/Users/reynolds87chris/htdocs/anime_banzai/Website'
+let g:netrw_dirhist_5='/Users/reynolds87chris/htdocs/SchoolSites/autocompleter'
+let g:netrw_dirhist_6='/Users/reynolds87chris/htdocs/dev2.0/beta.housemaster.com'
+let g:netrw_dirhist_7='/Users/reynolds87chris/htdocs/anime_banzai/Website'
+let g:netrw_dirhist_8='/Users/reynolds87chris/htdocs/dev2.0_git/globalClasses/.git'
+let g:netrw_dirhist_9='/Volumes/htdocs/dev2.0_git/block6services/API'
