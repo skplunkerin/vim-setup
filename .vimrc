@@ -6,6 +6,9 @@ syntax on
 " filetype plugin indent on
 filetype plugin on
 
+" auto open NERDTree when vim opens file
+autocmd VimEnter * NERDTree | wincmd p
+
 " The following is to better enable the functionality of omnicomplete (mainly
 " to disable the annoying default 'auto-fill with the first menu item'
 " functionality)
@@ -51,5 +54,3 @@ let NERDTreeShowHidden=1
 " This will allow me to toggle on/off ":set paste" so I can paste without auto
 " indenting/commenting
 set pastetoggle=<F10>
-" Think I want paste to always be on...? Let's try it and see how I like it
-set paste
