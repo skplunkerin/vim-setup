@@ -6,7 +6,7 @@ syntax on
 " filetype plugin indent on
 filetype plugin on
 
-" auto open NERDTree when vim opens file
+" auto open NERDTree when vim opens file, and default to right window
 autocmd VimEnter * NERDTree | wincmd p
 
 " The following is to better enable the functionality of omnicomplete (mainly
@@ -45,6 +45,14 @@ set autoindent
 
 " Maps keys to commands
 map <F2> :NERDTreeToggle<CR>
+
+" Window movement (specific for Chromebook)
+nmap <C-a> :wincmd h<CR>
+nmap <left> :wincmd h<CR>
+nmap <right> :wincmd l<CR>
+nmap <up> :wincmd k<CR>
+nmap <down> :wincmd j<CR>
+
 " Doesn't work, I have been manually 'formating' using 
 " set filetype=type, filetype indent on, gg=G
 map <F3> :AutoFormat<CR>
