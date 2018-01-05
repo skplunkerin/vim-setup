@@ -53,12 +53,28 @@ nmap <right> :wincmd l<CR>
 nmap <up> :wincmd k<CR>
 nmap <down> :wincmd j<CR>
 
+set encoding=utf-8
+
 " Doesn't work, I have been manually 'formating' using 
 " set filetype=type, filetype indent on, gg=G
 map <F3> :AutoFormat<CR>
 " Shows hidden (.filename) files in NERDTree
 let NERDTreeShowHidden=1
+let NERDTreeDirArrows=0
 
 " This will allow me to toggle on/off ":set paste" so I can paste without auto
 " indenting/commenting
 set pastetoggle=<F10>
+function Numbertoggle()
+  " echom &number
+	if &number == 1
+		set nonumber
+	else
+		set number
+	endif
+endfunction
+map <F9> :call Numbertoggle()<CR>
+
+" Attempt to get webpack working with recognizing file changes (on React
+" projects)
+set backupcopy=yes
