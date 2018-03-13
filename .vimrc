@@ -18,6 +18,18 @@ inoremap <expr> <CR> pumvisible() ? "\<C-y>" : "\<C-g>u\<CR>"
 " inoremap <expr> <C-n> pumvisible() ? '<C-n>' : '<C-n><C-r>=pumvisible() ? "\<lt>Down>" : ""<CR>'
 " inoremap <expr> <M-,> pumvisible() ? '<C-n>' : '<C-x><C-o><C-n><C-p><C-r>=pumvisible() ? "\<lt>Down>" : ""<CR>'
 
+" Macbook Pro (MBP) Touchbar ESC fixed
+" https://csswizardry.com/2017/01/preparing-vim-for-apples-touch-bar/
+" Insert mode can be escaped by typing either of the following: kj, qqq
+inoremap kj <esc>
+inoremap qqq <esc>
+" Take training wheels off so ESC does nothing:
+" (THESE DON'T WORK AND BREAK ':' FROM WORKING)
+" Map `Escape` to ‘nothing’ in Normal, Visual, Select, Operator-pending modes
+"noremap: <esc> <nop>
+" Map `Escape` to ‘nothing’ in Insert and Command modes
+"noremap!: <esc> <nop>
+
 " open omni completion menu closing previous if open and opening new menu
 " without changing the text
 " inoremap <expr> <C-Space> (pumvisible() ? (col('.') > 1 ? '<Esc>i<Right>' : '<Esc>i') : '') . '<C-x><C-o><C-r>=pumvisible() ? "\<lt>C-n>\<lt>C-p>\<lt>Down>" : ""<CR>'
