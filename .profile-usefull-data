@@ -1,0 +1,102 @@
+# ~/.profile: executed by the command interpreter for login shells.
+# This file is not read by bash(1), if ~/.bash_profile or ~/.bash_login
+# exists.
+# see /usr/share/doc/bash/examples/startup-files for examples.
+# the files are located in the bash-doc package.
+
+# RVM
+# Don't need to add these manually, when you install RVM it'll add this
+## export PATH="$PATH:$HOME/.rvm/bin" # Add RVM to PATH for scripting
+## [[ -s "$HOME/.rvm/scripts/rvm" ]] && source "$HOME/.rvm/scripts/rvm" # Load RVM into a shell session *as a function*
+
+# GEM bunder editor:
+#   for quickly opening a bundler gem without needing to locate it
+#   usage: bundler open gem-name
+#   (preferably 'cd' into project folder first, to make sure bundler opens up gem used by the Rails project)
+export EDITOR=vim
+export BUNDLER_EDITOR=vim
+
+# Optional Rails ENVs:
+## export RAILS_ENV=development
+# To get this value, run the below and copy/paste the value here:
+#   RAILS_ENV=production rake secret
+## export RAILS_ENV=production
+## export SECRET_KEY_BASE=PASTE-VALUE-HERE
+
+# grep search for process
+#   ARGUMENT_1 ($1) is process name string to search for
+#   if -k option set, process will be killed with code -15
+#     -k kill_code can be used to change default -15 code
+# usage: pid_search process_name
+pid_search() {
+  # Default to not killing found pid
+  local kill_pid=false
+
+  # Loop through arguments to find any options
+  #   -k or --kill are the only options we have, everything else goes into POSITIONAL and then resets back into the ARGUMENT number
+  # https://stackoverflow.com/a/14203146/1180523
+  POSITIONAL=()
+  for i in "$@"; do
+    case $i in
+      # Syntax for:
+      # -k value
+      # --kill value
+      -k|--kill)
+      # kill_code="${2:--15}" # Default set above
+      # NOTE: not adding 'local ' will make variable Global/permanently set (just like an ENV variable)
+      local kill_pid=true
+      local kill_code="${2:--15}"
+      shift # past argument
+      shift # past value
+      ;;
+
+      # TODO: find way to combine these 2 different syntaxes (for the same options)
+
+      # Syntax for:
+      # -k=value
+      # --kill=value
+      -k=*|--kill=*)
+      # Default set above
+      local kill_pid=true
+      local kill_code="${i#*=}"
+      shift # past argument
+      shift # past value
+      ;;
+
+      # unknown options (other arguments that don't belong to an option)
+      *)
+      POSITIONAL+=("$1") # save it in an array for later
+      shift # past argument
+      ;;
+    esac
+  done
+  # restore positional parameters
+  set -- "${POSITIONAL[@]}"
+
+  # Debug values:
+  # echo "$1"         # the process to search for
+  # echo "$kill_pid"  # if we should kill found process
+  # echo "$kill_code" # kill code for killing process
+
+  # If we have process to search for (if $1 argument set)
+  # https://stackoverflow.com/a/6482403/1180523
+  if [ -z "$1" ] ; then 
+    echo "0 of 1 arguments found: ARG1=string to search"
+    echo "i.e. pid_search 'process_name'"
+  else
+    # If we should kill process
+    # https://stackoverflow.com/a/2953673/1180523
+    if [ "$kill_pid" = true ] ; then
+      echo "Found process:"
+      ps aux | grep -v 'grep' | grep "$1"
+      ps aux | grep -v 'grep' | grep "$1" | awk '{print $2}' | xargs kill "${kill_code}"
+      echo ""
+      echo "Process killed with code: ${kill_code}"
+    else
+      ps aux | grep -v 'grep' | grep "$1"
+      echo ""
+      echo "To kill process, append -k after search string"
+      echo "i.e. pid_search 'process_name' -k"
+    fi
+  fi
+}
