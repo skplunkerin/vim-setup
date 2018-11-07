@@ -87,6 +87,10 @@ function Numbertoggle()
 endfunction
 map <F9> :call Numbertoggle()<CR>
 
+" Fix backspace (delete) key to work as expected after updating Vim
+" http://vim.wikia.com/wiki/Backspace_and_delete_problems
+set backspace=indent,eol,start
+
 " Attempt to get webpack working with recognizing file changes (on React
 " projects)
 set backupcopy=yes
