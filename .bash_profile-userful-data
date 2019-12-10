@@ -1,0 +1,32 @@
+# Add NVM data here after installing (don't place in .bashrc)
+# export NVM_DIR="$HOME/.nvm"
+# [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
+# [ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
+
+# Uncomment if using NVM
+# # https://stackoverflow.com/a/50378304/1180523
+# # Run 'nvm use' automatically every time there's
+# # a .nvmrc file in the directory. Also, revert to default
+# # version when entering a directory without .nvmrc
+# #
+# enter_directory() {
+#   if [[ $PWD == $PREV_PWD ]]; then
+#       return
+#   fi
+#   PREV_PWD=$PWD
+#   if [[ -f ".nvmrc" ]]; then
+#       # nvm use
+#       # see comment to SO answer
+#       VERSION=$(cat .nvmrc); nvm use $VERSION
+#       NVM_DIRTY=true
+#   elif [[ $NVM_DIRTY = true ]]; then
+#       nvm use default
+#       NVM_DIRTY=false
+#   fi
+# }
+# export PROMPT_COMMAND=enter_directory
+
+# Load ~/.bashrc if it exists
+if [ -f ~/.bashrc ]; then
+  source ~/.bashrc
+fi

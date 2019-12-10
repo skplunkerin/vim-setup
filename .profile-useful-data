@@ -100,3 +100,7 @@ pid_search() {
     fi
   fi
 }
+
+alias ll="ls -la"
+# Fix broken audio (sound stopped working)
+alias "fix-audio"="sudo launchctl stop com.apple.audio.coreaudiod"
