@@ -30,3 +30,6 @@
 if [ -f ~/.bashrc ]; then
   source ~/.bashrc
 fi
+
+# # Add Go home path if Go installed
+# export PATH="$PATH:$HOME/go/bin"
