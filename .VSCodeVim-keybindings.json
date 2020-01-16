@@ -1,0 +1,59 @@
+// Place your key bindings in this file to override the defaults
+[
+    /*
+    Navigate between panes
+    https://stackoverflow.com/a/50593160/1180523
+    */
+    {
+        "key": "ctrl+left",
+        "command": "workbench.action.navigateLeft"
+    },
+    {
+        "key": "ctrl+right",
+        "command": "workbench.action.navigateRight"
+    },
+    {
+        "key": "ctrl+up",
+        "command": "workbench.action.navigateUp"
+    },
+    {
+        "key": "ctrl+down",
+        "command": "workbench.action.navigateDown"
+    },
+    /*
+    Navigate between panes
+    https://stackoverflow.com/a/50593160/1180523
+    */
+    {
+        "key": "ctrl+h",
+        "command": "workbench.action.navigateLeft"
+    },
+    {
+        "key": "ctrl+l",
+        "command": "workbench.action.navigateRight"
+    },
+    {
+        "key": "ctrl+k",
+        "command": "workbench.action.navigateUp"
+    },
+    {
+        "key": "ctrl+j",
+        "command": "workbench.action.navigateDown"
+    },
+    /*
+    Create new file in current working folder
+    https://stackoverflow.com/a/39599731/1180523
+    */
+    {
+        "key": "ctrl+n",
+        "command": "explorer.newFile"
+    },
+    /*
+    Create new folder in current working folder
+    https://stackoverflow.com/a/39599731/1180523
+    */
+    {
+        "key": "ctrl+shift+n",
+        "command": "explorer.newFolder"
+    }
+]
