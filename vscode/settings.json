@@ -1,0 +1,23 @@
+{
+    "vim.insertModeKeyBindingsNonRecursive": [
+        {
+            "before": [
+                "k", "j"
+            ],
+            "after": [
+                "<Esc>"
+            ]
+        }
+    ],
+    "vim.timeout": 250, // Default: 1000
+    "vim.hlsearch": true,
+    "go.formatTool": "goimports",
+    "go.useLanguageServer": true,
+    "workbench.editor.enablePreview": false,
+    "editor.formatOnSave": true,
+    "gitlens.defaultDateFormat": "YYYY-MM-DDTHH:mm:ssZ",
+    "gitlens.defaultDateShortFormat": "YYYY-MM-DD",
+    "salesforcedx-vscode-apex.java.home": "/Library/Java/JavaVirtualMachines/zulu-11.jdk/Contents/Home/",
+    "workbench.startupEditor": "newUntitledFile",
+    "explorer.confirmDragAndDrop": false
+}

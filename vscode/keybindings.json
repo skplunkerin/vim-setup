@@ -41,12 +41,27 @@
         "command": "workbench.action.navigateDown"
     },
     /*
+    Navigate between File Explorer, and back to last file
+    https://github.com/microsoft/vscode/issues/4557#issuecomment-276960041
+    */
+    {
+        "key": "ctrl+a",
+        "command": "workbench.view.explorer",
+        "when": "!filesExplorerFocus"
+    },
+    {
+        "key": "ctrl+a",
+        "command": "workbench.action.navigateBack",
+        "when": "filesExplorerFocus"
+    },
+    /*
     Create new file in current working folder
     https://stackoverflow.com/a/39599731/1180523
     */
     {
         "key": "ctrl+n",
-        "command": "explorer.newFile"
+        "command": "explorer.newFile",
+        "when": "vim.mode == 'Normal'"
     },
     /*
     Create new folder in current working folder
@@ -55,5 +70,33 @@
     {
         "key": "ctrl+shift+n",
         "command": "explorer.newFolder"
+    },
+    /*
+    Open/Navigate the suggestions dropdown via VIM while in Insert mode
+    https://vscodevim.slack.com/archives/C0ENQMTUM/p1582202670058400
+    https://www.gitmemory.com/issue/VSCodeVim/Vim/1372/504856503
+    */
+    {
+        "key": "ctrl+n",
+        "command": "editor.action.triggerSuggest",
+        "when": "vim.mode == 'Insert'"
+    },
+    {
+        "key": "ctrl+n",
+        "command": "selectNextSuggestion",
+        "when": "suggestWidgetVisible"
+    },
+    {
+        "key": "ctrl+p",
+        "command": "selectPrevSuggestion",
+        "when": "suggestWidgetVisible"
+    },
+    /*
+    I keep trying to open the commands panel with this shortcut
+    (instead of "shift+cmd+p"), adding it here as alternate method
+    */
+    {
+        "key": "ctrl+cmd+p",
+        "command": "workbench.action.showCommands"
     }
 ]
