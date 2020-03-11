@@ -1,6 +1,19 @@
 // Place your key bindings in this file to override the defaults
 [
     /*
+    These already built into VSCode
+    (adding here to reference if I ever forget command)
+    https://stackoverflow.com/questions/44018175/visual-studio-code-hotkey-to-move-a-tab-from-one-of-two-split-editors-to-anothe
+    */
+    // {
+    //     "key": "ctrl+cmd+left",
+    //     "command": "workbench.action.moveEditorToPreviousGroup"
+    // },
+    // {
+    //     "key": "ctrl+cmd+right",
+    //     "command": "workbench.action.moveEditorToNextGroup"
+    // },
+    /*
     Navigate between panes
     https://stackoverflow.com/a/50593160/1180523
     */
@@ -41,18 +54,14 @@
         "command": "workbench.action.navigateDown"
     },
     /*
-    Navigate between File Explorer, and back to last file
+    Navigate between File Explorer, and back to last pane/file/line
     https://github.com/microsoft/vscode/issues/4557#issuecomment-276960041
+    https://vscodevim.slack.com/archives/C0ENQMTUM/p1583934716062300
     */
     {
         "key": "ctrl+a",
         "command": "workbench.view.explorer",
-        "when": "!filesExplorerFocus"
-    },
-    {
-        "key": "ctrl+a",
-        "command": "workbench.action.navigateBack",
-        "when": "filesExplorerFocus"
+        "when": "!filesExplorerFocus || filesExplorerFocus"
     },
     /*
     Create new file in current working folder
