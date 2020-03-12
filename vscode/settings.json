@@ -20,5 +20,31 @@
     "gitlens.defaultDateShortFormat": "YYYY-MM-DD",
     "salesforcedx-vscode-apex.java.home": "/Library/Java/JavaVirtualMachines/zulu-11.jdk/Contents/Home/",
     "workbench.startupEditor": "newUntitledFile",
-    "explorer.confirmDragAndDrop": false
+    "explorer.confirmDragAndDrop": false,
+    /*
+    Set vertical ruler
+    https://stackoverflow.com/questions/29968499/vertical-rulers-in-visual-studio-code
+
+    You can also have this be language specific (see [git-commit] below)
+    https://stackoverflow.com/a/47784112/1180523
+    */
+    "editor.rulers": [
+        80,
+        120
+    ],
+    "[git-commit]": {
+        "editor.rulers": [
+            50
+        ],
+    },
+    "workbench.colorCustomizations": {
+        // "editorRuler.foreground": "#ff4081"
+        // "editorRuler.foreground": "#F48024"
+        "editorRuler.foreground": "#FF786A"
+    },
+    // "editor.trimAutoWhitespace": false,
+    // "files.trimTrailingWhitespace": false,
+    // "editor.trimAutoWhitespace": false,
+    // "editor.renderWhitespace": "all",
+    "editor.tabSize": 2,
 }
