@@ -19,19 +19,23 @@
     */
     {
         "key": "ctrl+left",
-        "command": "workbench.action.navigateLeft"
+        "command": "workbench.action.navigateLeft",
+        // "when": "vim.mode == 'Normal' && textInputFocus"
     },
     {
         "key": "ctrl+right",
-        "command": "workbench.action.navigateRight"
+        "command": "workbench.action.navigateRight",
+        // "when": "vim.mode == 'Normal' && textInputFocus"
     },
     {
         "key": "ctrl+up",
-        "command": "workbench.action.navigateUp"
+        "command": "workbench.action.navigateUp",
+        // "when": "vim.mode == 'Normal' && textInputFocus"
     },
     {
         "key": "ctrl+down",
-        "command": "workbench.action.navigateDown"
+        "command": "workbench.action.navigateDown",
+        // "when": "vim.mode == 'Normal' && textInputFocus"
     },
     /*
     Navigate between panes
@@ -63,9 +67,80 @@
         "command": "workbench.view.explorer",
         "when": "!filesExplorerFocus || filesExplorerFocus"
     },
+    // doesn't work, need to run extension to do multiple commands
+    // https://stackoverflow.com/a/49612562/1180523
+    // {
+    //     "key": "ctrl+a",
+    //     "commands": [
+    //         "workbench.view.explorer",
+    //         "workbench.action.toggleSidebarVisibility",
+    //     ],
+    //     "when": "filesExplorerFocus"
+    // },
+    /*
+    Open Context menu (right click menu) from File Explorer
+    (don't need to open context menu, just run the shortcuts to do the actions you want)
+    https://vscodevim.slack.com/archives/C0ENQMTUM/p1585145701006900
+    https://github.com/microsoft/vscode/issues/93497
+    */
+    // Insert/Add file childnode
+    // NOTE: see below "ctrl+n" when vim.mode == 'Normal'
+    {
+        "key": "i",
+        "command": "explorer.newFile",
+        "when": "filesExplorerFocus"
+    },
+    // Insert/Add folder childnode
+    // NOTE: see below "ctrl+shift+n"
+    {
+        "key": "shift+i",
+        "command": "explorer.newFolder",
+        "when": "filesExplorerFocus"
+    },
+    // Rename current node
+    // Default: enter
+    // "key": "c i w", // Doesn't work... conflicts with above "i"
+    {
+        "key": "r", // replace
+        "command": "renameFile",
+        "when": "explorerViewletVisible && filesExplorerFocus && !explorerResourceIsRoot && !explorerResourceReadonly && !inputFocus"
+    },
+    {
+        "key": "m", // Nerdtree (m)ove
+        "command": "renameFile",
+        "when": "explorerViewletVisible && filesExplorerFocus && !explorerResourceIsRoot && !explorerResourceReadonly && !inputFocus"
+    },
+    // Delete current node
+    // Default: cmd+backspace
+    {
+        "key": "d",
+        "command": "moveFileToTrash",
+        "when": "explorerResourceMoveableToTrash && explorerViewletVisible && filesExplorerFocus && !explorerResourceReadonly && !inputFocus"
+    },
+    // Yank current node
+    // Default: cmd+c
+    // TODO: how can I do c || y???
+    {
+        "key": "c",
+        "command": "filesExplorer.copy",
+        "when": "explorerViewletVisible && filesExplorerFocus && !explorerResourceIsRoot && !inputFocus"
+    },
+    {
+        "key": "y",
+        "command": "filesExplorer.copy",
+        "when": "explorerViewletVisible && filesExplorerFocus && !explorerResourceIsRoot && !inputFocus"
+    },
+    // Paste yanked node
+    // Default: cmd+v
+    {
+        "key": "p",
+        "command": "filesExplorer.paste",
+        "when": "explorerViewletVisible && filesExplorerFocus && !explorerResourceReadonly && !inputFocus"
+    },
     /*
     Create new file in current working folder
     https://stackoverflow.com/a/39599731/1180523
+    NOTE: see above "i" when explorderViewletVisible
     */
     {
         "key": "ctrl+n",
@@ -75,6 +150,7 @@
     /*
     Create new folder in current working folder
     https://stackoverflow.com/a/39599731/1180523
+    NOTE: see above "shift+i" when explorderViewletVisible
     */
     {
         "key": "ctrl+shift+n",

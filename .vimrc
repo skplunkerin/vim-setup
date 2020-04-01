@@ -8,6 +8,15 @@ filetype plugin on
 
 " auto open NERDTree when vim opens file, and default to right window
 autocmd VimEnter * NERDTree | wincmd p
+" trying to work with vim sessions, but nerdtree breaks it all :/
+" https://www.freecodecamp.org/news/learn-linux-vim-basic-features-19134461ab85/
+" https://www.vim.org/scripts/script.php?script_id=3150
+" https://www.google.com/search?q=vim+make+session+with+nerdtree&rlz=1C5CHFA_enUS852US852&oq=vim+make+session+with+nerdtree&aqs=chrome..69i57j33.7096j0j7&sourceid=chrome&ie=UTF-8
+" https://stackoverflow.com/questions/4226905/vim-nerdtree-not-recovered-in-session-restore
+" https://shapeshed.com/vim-netrw/
+" if !exists('SessionLoad')
+"   autocmd VimEnter * NERDTree | wincmd p
+" endif
 
 " The following is to better enable the functionality of omnicomplete (mainly
 " to disable the annoying default 'auto-fill with the first menu item'
@@ -61,9 +70,13 @@ map <F2> :NERDTreeToggle<CR>
 " Window movement (specific for Chromebook)
 nmap <C-a> :wincmd h<CR>
 nmap <left> :wincmd h<CR>
+nmap <C-h> :wincmd h<CR>
 nmap <right> :wincmd l<CR>
+nmap <C-l> :wincmd l<CR>
 nmap <up> :wincmd k<CR>
+nmap <C-k> :wincmd k<CR>
 nmap <down> :wincmd j<CR>
+nmap <C-j> :wincmd j<CR>
 
 set encoding=utf-8
 

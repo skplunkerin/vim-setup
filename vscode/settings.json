@@ -16,6 +16,10 @@
     "go.useLanguageServer": true,
     "workbench.editor.enablePreview": false,
     "editor.formatOnSave": true,
+    "editor.minimap.scale": 1,
+    // "editor.minimap.size": "fit",
+    "editor.minimap.size": "proportional",
+    // "editor.minimap.size": "fill",
     "gitlens.defaultDateFormat": "YYYY-MM-DDTHH:mm:ssZ",
     "gitlens.defaultDateShortFormat": "YYYY-MM-DD",
     "salesforcedx-vscode-apex.java.home": "/Library/Java/JavaVirtualMachines/zulu-11.jdk/Contents/Home/",
@@ -29,8 +33,14 @@
     https://stackoverflow.com/a/47784112/1180523
     */
     "editor.rulers": [
-        80,
-        120
+        {
+            "column": 80,
+            "color": "#FF786A"
+        },
+        {
+            "column": 120,
+            "color": "#E4473A"
+        },
     ],
     "[git-commit]": {
         "editor.rulers": [
@@ -38,13 +48,22 @@
         ],
     },
     "workbench.colorCustomizations": {
-        // "editorRuler.foreground": "#ff4081"
-        // "editorRuler.foreground": "#F48024"
-        "editorRuler.foreground": "#FF786A"
+        // Mini Map
+        "minimap.background": "#00000055"
+        // Vertical Guide Ruler
+        // (replaced by having separate colors defined in editor.rulers)
+        // "editorRuler.foreground": "#FF786A",
     },
     // "editor.trimAutoWhitespace": false,
     // "files.trimTrailingWhitespace": false,
     // "editor.trimAutoWhitespace": false,
     // "editor.renderWhitespace": "all",
     "editor.tabSize": 2,
+    "window.title": "${activeEditorMedium}${separator}${rootName}",
+    "[json]": {
+        "editor.defaultFormatter": "esbenp.prettier-vscode"
+    },
+    "vim.neovimPath": "/usr/local/bin/nvim",
+    "vim.enableNeovim": true,
+    "vim.ignorecase": false,
 }
