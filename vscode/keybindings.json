@@ -88,14 +88,14 @@
     {
         "key": "i",
         "command": "explorer.newFile",
-        "when": "filesExplorerFocus"
+        "when": "filesExplorerFocus && !inputFocus"
     },
     // Insert/Add folder childnode
     // NOTE: see below "ctrl+shift+n"
     {
         "key": "shift+i",
         "command": "explorer.newFolder",
-        "when": "filesExplorerFocus"
+        "when": "filesExplorerFocus && !inputFocus"
     },
     // Rename current node
     // Default: enter
