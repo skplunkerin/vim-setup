@@ -1,6 +1,15 @@
 // Place your key bindings in this file to override the defaults
 [
     /*
+    Clear Terminal
+    Default: cmd+k
+    */
+    {
+        "key": "ctrl+l",
+        "command": "workbench.action.terminal.clear",
+        "when": "terminalFocus"
+    },
+    /*
     Open Quick Open files to side, rather than in current editor group
     (here for reminder)
     */
@@ -80,7 +89,8 @@
     },
     {
         "key": "ctrl+l",
-        "command": "workbench.action.navigateRight"
+        "command": "workbench.action.navigateRight",
+        "when": "!terminalFocus" /* Want to use ctrl+l to clear terminal, not navigate away */
     },
     {
         "key": "ctrl+k",
