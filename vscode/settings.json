@@ -10,8 +10,7 @@
             ]
         }
     ],
-    "vim.timeout": 250, // Default: 1000
-    "vim.hlsearch": true,
+    "vim.timeout": 250,
     "go.formatTool": "goimports",
     "go.useLanguageServer": true,
     "workbench.editor.enablePreview": false,
@@ -66,4 +65,12 @@
     "vim.neovimPath": "/usr/local/bin/nvim",
     "vim.enableNeovim": true,
     "vim.ignorecase": false,
+    "[env]": {},
+    "ruby.intellisense": "rubyLocate",
+    // "ruby.lint": {},
+    /*
+    Sort cmd+P (and equivalent search boxes) by recency first
+    (instead of relevance first)
+    */
+    "search.quickOpen.history.filterSortOrder": "recency",
 }

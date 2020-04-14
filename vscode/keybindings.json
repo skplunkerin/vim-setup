@@ -1,6 +1,39 @@
 // Place your key bindings in this file to override the defaults
 [
     /*
+    Open Quick Open files to side, rather than in current editor group
+    (here for reminder)
+    */
+    // Default:
+    // {
+    //     "key": "cmd+enter",
+    //     "command": "workbench.action.alternativeAcceptSelectedQuickOpenItem",
+    //     "when": "inQuickOpen"
+    // },
+    /*
+    Override VSCodeVim's "cmd+c" command, which exits you from "insert mode"
+    https://vscodevim.slack.com/archives/C0ENQMTUM/p1586017571018100
+    */
+    // {
+    //     "key": "cmd+c",
+    //     // "command": "extension.vim_cmd+c", // Vim extension command will exit Insert mode if used
+    //     "command": "execCopy",
+    //     "when": "editorTextFocus && vim.active && vim.overrideCopy && vim.use<D-c> && !inDebugRepl"
+    // },
+    /*
+    this also works, though I'm not sure where @bronson found this command:
+    https://vscodevim.slack.com/archives/C0ENQMTUM/p1586194542019000?thread_ts=1586017571.018100&cid=C0ENQMTUM
+    */
+    {
+        "key": "cmd+c",
+        "command": "editor.action.clipboardCopyAction",
+        "when": "editorTextFocus"
+    },
+    //   {
+    //     "key": "cmd+c",
+    //     "command": "execCopy"
+    //   }
+    /*
     These already built into VSCode
     (adding here to reference if I ever forget command)
     https://stackoverflow.com/questions/44018175/visual-studio-code-hotkey-to-move-a-tab-from-one-of-two-split-editors-to-anothe
@@ -183,5 +216,16 @@
     {
         "key": "ctrl+cmd+p",
         "command": "workbench.action.showCommands"
-    }
+    },
+    // /*
+    // Open file search "Open View"
+    // */
+    // {
+    //     "key": "cmd+shift+o",
+    //     "command": "workbench.action.openView"
+    // },
+    // {
+    //     "key": "ctrl+cmd+o",
+    //     "command": "workbench.action.openView"
+    // },
 ]
