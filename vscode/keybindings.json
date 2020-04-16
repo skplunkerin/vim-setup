@@ -1,6 +1,20 @@
 // Place your key bindings in this file to override the defaults
 [
     /*
+    "ctrl+cmd+left|right" moves editor to prev/next editor groups.
+    These will allow adding to below/above groups
+    */
+    {
+        "key": "ctrl+cmd+down",
+        "command": "workbench.action.moveEditorToBelowGroup",
+        "when": "editorTextFocus"
+    },
+    {
+        "key": "ctrl+cmd+up",
+        "command": "workbench.action.moveEditorToAboveGroup",
+        "when": "editorTextFocus"
+    },
+    /*
     I disabled the (disorienting) "explorer.autoReveal" in settings.json
     (where active editor file refreshes Explorer to show where file is located)
     This will allow me to go to the active file location in Explorer
