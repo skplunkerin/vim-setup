@@ -1,6 +1,42 @@
 // Place your key bindings in this file to override the defaults
 [
     /*
+    I disabled the (disorienting) "explorer.autoReveal" in settings.json
+    (where active editor file refreshes Explorer to show where file is located)
+    This will allow me to go to the active file location in Explorer
+    when I want that to happen
+    */
+    {
+        "key": "cmd+shift+a",
+        "command": "workbench.files.action.showActiveFileInExplorer",
+        "when": "textInputFocus"
+    },
+    /*
+    Add Vims default "shift+right"/etc functionality
+    https://vscodevim.slack.com/archives/C0ENQMTUM/p1586879441027800
+    cursorWordEndRight, cursorWordEndLeft, cursorWordStartRight or cursorWordStartLeft
+    */
+    // {
+    //     "key": "shift+up",
+    //     "command": "cursorPageUp",
+    //     "when": "textInputFocus"
+    // },
+    // {
+    //     "key": "shift+right",
+    //     "command": "cursorWordEndRight",
+    //     "when": "textInputFocus"
+    // },
+    // {
+    //     "key": "shift+down",
+    //     "command": "cursorPageDown",
+    //     "when": "textInputFocus"
+    // },
+    // {
+    //     "key": "shift+left",
+    //     "command": "cursorWordEndLeft",
+    //     "when": "textInputFocus"
+    // },
+    /*
     Clear Terminal
     Default: cmd+k
     */

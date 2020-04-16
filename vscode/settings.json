@@ -73,4 +73,6 @@
     (instead of relevance first)
     */
     "search.quickOpen.history.filterSortOrder": "recency",
+    "search.searchOnType": false,
+    "explorer.autoReveal": false,
 }
