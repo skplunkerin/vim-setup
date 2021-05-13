@@ -1,78 +1,164 @@
 {
-    "vim.insertModeKeyBindingsNonRecursive": [
+  "vim.insertModeKeyBindingsNonRecursive": [
+    // Doing this via my ~/.vimrc
+    // {
+    //     "before": [
+    //         "k",
+    //         "j"
+    //     ],
+    //     "after": [
+    //         "<Esc>"
+    //     ]
+    // },
+  ],
+  "vim.normalModeKeyBindingsNonRecursive": [
+    /*
+    [Line Note extension] Open note on current line:
+    */
+    {
+        "before": ["g","n"],
+        "after": [],
+        "commands": [
+          {
+            "command": "linenote.openNote"
+          }
+        ]
+    },
+    /*
+    This is a workaround for VSCodeVim's issue #2007:
+    Pressing 'u' will undo all the stack - https://github.com/VSCodeVim/Vim/issues/2007
+    */
+    {
+      "before": ["u"],
+      "after": [],
+      "commands": [
         {
-            "before": [
-                "k",
-                "j"
-            ],
-            "after": [
-                "<Esc>"
-            ]
+          "command": "undo"
         }
-    ],
-    "vim.timeout": 250,
-    "go.formatTool": "goimports",
-    "go.useLanguageServer": true,
-    "workbench.editor.enablePreview": false,
-    "editor.formatOnSave": true,
-    "editor.minimap.scale": 1,
-    // "editor.minimap.size": "fit",
-    "editor.minimap.size": "proportional",
-    // "editor.minimap.size": "fill",
-    "gitlens.defaultDateFormat": "YYYY-MM-DDTHH:mm:ssZ",
-    "gitlens.defaultDateShortFormat": "YYYY-MM-DD",
-    "salesforcedx-vscode-apex.java.home": "/Library/Java/JavaVirtualMachines/zulu-11.jdk/Contents/Home/",
-    "workbench.startupEditor": "newUntitledFile",
-    "explorer.confirmDragAndDrop": false,
+      ]
+    },
+    {
+      "before": ["<C-r>"],
+      "after": [],
+      "commands": [
+        {
+          "command": "redo"
+        }
+      ]
+    },
     /*
-    Set vertical ruler
-    https://stackoverflow.com/questions/29968499/vertical-rulers-in-visual-studio-code
+    Vim <leader>!!! (just found out about this)
+    it's gimicky in VSCodeVim though... :(
+    */
+    /*
+    <leader> Toggle file Explorer
+    For some reason, doesn't work
+        ["<leader>","n","t"]
+    but removing the 3rd before (t) works
+        ["<leader>","n"]
+    */
+    {
+      "before": ["<leader>", "e"],
+      "commands": ["workbench.action.toggleSidebarVisibility"],
+    },
+    /*
+    Go Test nearest (at cursor)
+    NOTE: just use the new keybinding: alt+cmd+t
+    */
+    {
+      "before": ["<leader>", "t", "n"],
+      "commands": ["go.debug.cursor"]
+    },
+    {
+      "before": ["g", "i"],
+      "commands": ["editor.action.goToImplementation"]
+    }
+  ],
+  "vim.timeout": 250,
+  "go.formatTool": "goimports",
+  // this causes false Go errors in Problems
+  // "go.useLanguageServer": true,
+  "workbench.editor.enablePreview": false,
+  "editor.formatOnSave": true,
+  "editor.minimap.scale": 1,
+  // "editor.minimap.size": "fit",
+  "editor.minimap.size": "proportional",
+  // "editor.minimap.size": "fill",
+  "gitlens.defaultDateFormat": "YYYY-MM-DDTHH:mm:ssZ",
+  "gitlens.defaultDateShortFormat": "YYYY-MM-DD",
+  "salesforcedx-vscode-apex.java.home": "/Library/Java/JavaVirtualMachines/zulu-11.jdk/Contents/Home/",
+  "workbench.startupEditor": "newUntitledFile",
+  "explorer.confirmDragAndDrop": false,
+  /*
+  Set vertical ruler
+  https://stackoverflow.com/questions/29968499/vertical-rulers-in-visual-studio-code
 
-    You can also have this be language specific (see [git-commit] below)
-    https://stackoverflow.com/a/47784112/1180523
-    */
-    "editor.rulers": [
-        {
-            "column": 80,
-            "color": "#FF786A"
-        },
-        {
-            "column": 120,
-            "color": "#E4473A"
-        },
-    ],
-    "[git-commit]": {
-        "editor.rulers": [
-            50
-        ],
+  You can also have this be language specific (see [git-commit] below)
+  https://stackoverflow.com/a/47784112/1180523
+  */
+  "editor.rulers": [
+    {
+      "column": 80,
+      "color": "#FF786A"
     },
-    "workbench.colorCustomizations": {
-        // Mini Map
-        "minimap.background": "#00000055"
-        // Vertical Guide Ruler
-        // (replaced by having separate colors defined in editor.rulers)
-        // "editorRuler.foreground": "#FF786A",
-    },
-    // "editor.trimAutoWhitespace": false,
-    // "files.trimTrailingWhitespace": false,
-    // "editor.trimAutoWhitespace": false,
-    // "editor.renderWhitespace": "all",
+    {
+      "column": 120,
+      "color": "#E4473A"
+    }
+  ],
+  "[git-commit]": {
+    "editor.rulers": [50]
+  },
+  "workbench.colorCustomizations": {
+    // Mini Map
+    "minimap.background": "#00000055"
+    // Vertical Guide Ruler
+    // (replaced by having separate colors defined in editor.rulers)
+    // "editorRuler.foreground": "#FF786A",
+  },
+  // "editor.trimAutoWhitespace": false,
+  // "files.trimTrailingWhitespace": false,
+  // "editor.trimAutoWhitespace": false,
+  // "editor.renderWhitespace": "all",
+  "editor.tabSize": 2,
+  "[ruby]": {
+    "editor.insertSpaces": true,
     "editor.tabSize": 2,
-    "window.title": "${activeEditorMedium}${separator}${rootName}",
-    "[json]": {
-        "editor.defaultFormatter": "esbenp.prettier-vscode"
-    },
-    "vim.neovimPath": "/usr/local/bin/nvim",
-    "vim.enableNeovim": true,
-    "vim.ignorecase": false,
-    "[env]": {},
-    "ruby.intellisense": "rubyLocate",
-    // "ruby.lint": {},
-    /*
-    Sort cmd+P (and equivalent search boxes) by recency first
-    (instead of relevance first)
-    */
-    "search.quickOpen.history.filterSortOrder": "recency",
-    "search.searchOnType": false,
-    "explorer.autoReveal": false,
+    "editor.autoIndent": "advanced"
+  },
+  "[rust]": {
+    "editor.insertSpaces": true,
+    "editor.tabSize": 4,
+    "editor.autoIndent": "advanced"
+  },
+  "window.title": "${activeEditorMedium}${separator}${rootName}",
+  "[json]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
+  },
+  "vim.neovimPath": "/usr/local/bin/nvim",
+  "vim.enableNeovim": true,
+  "vim.ignorecase": false,
+  "ruby.intellisense": "rubyLocate",
+  // "ruby.lint": {},
+  /*
+  Sort cmd+P (and equivalent search boxes) by recency first
+  (instead of relevance first)
+  */
+  "search.quickOpen.history.filterSortOrder": "recency",
+  "search.searchOnType": false,
+  "explorer.autoReveal": false,
+  "vim.leader": ",",
+  "vim.vimrc.enable": true,
+  "window.zoomLevel": 0,
+  "editor.parameterHints.enabled": false,
+  "editor.find.cursorMoveOnType": false,
+  "vim.hlsearch": true,
+  "editor.suggest.statusBar.visible": true,
+  // "go.gopath": "/usr/local/go/bin/go",
+  // "vim.incsearch": false
+  "debug.console.wordWrap": true,
+  "[html]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
+  },
+  "go.toolsManagement.autoUpdate": true,
 }

@@ -1,291 +1,333 @@
 // Place your key bindings in this file to override the defaults
 [
-    /*
-    "ctrl+cmd+left|right" moves editor to prev/next editor groups.
-    These will allow adding to below/above groups
-    */
-    {
-        "key": "ctrl+cmd+down",
-        "command": "workbench.action.moveEditorToBelowGroup",
-        "when": "editorTextFocus"
-    },
-    {
-        "key": "ctrl+cmd+up",
-        "command": "workbench.action.moveEditorToAboveGroup",
-        "when": "editorTextFocus"
-    },
-    /*
-    I disabled the (disorienting) "explorer.autoReveal" in settings.json
-    (where active editor file refreshes Explorer to show where file is located)
-    This will allow me to go to the active file location in Explorer
-    when I want that to happen
-    */
-    {
-        "key": "cmd+shift+a",
-        "command": "workbench.files.action.showActiveFileInExplorer",
-        "when": "textInputFocus"
-    },
-    /*
-    Add Vims default "shift+right"/etc functionality
-    https://vscodevim.slack.com/archives/C0ENQMTUM/p1586879441027800
-    cursorWordEndRight, cursorWordEndLeft, cursorWordStartRight or cursorWordStartLeft
-    */
-    // {
-    //     "key": "shift+up",
-    //     "command": "cursorPageUp",
-    //     "when": "textInputFocus"
-    // },
-    // {
-    //     "key": "shift+right",
-    //     "command": "cursorWordEndRight",
-    //     "when": "textInputFocus"
-    // },
-    // {
-    //     "key": "shift+down",
-    //     "command": "cursorPageDown",
-    //     "when": "textInputFocus"
-    // },
-    // {
-    //     "key": "shift+left",
-    //     "command": "cursorWordEndLeft",
-    //     "when": "textInputFocus"
-    // },
-    /*
-    Clear Terminal
-    Default: cmd+k
-    */
-    {
-        "key": "ctrl+l",
-        "command": "workbench.action.terminal.clear",
-        "when": "terminalFocus"
-    },
-    /*
-    Open Quick Open files to side, rather than in current editor group
-    (here for reminder)
-    */
-    // Default:
-    // {
-    //     "key": "cmd+enter",
-    //     "command": "workbench.action.alternativeAcceptSelectedQuickOpenItem",
-    //     "when": "inQuickOpen"
-    // },
-    /*
-    Override VSCodeVim's "cmd+c" command, which exits you from "insert mode"
-    https://vscodevim.slack.com/archives/C0ENQMTUM/p1586017571018100
-    */
-    // {
-    //     "key": "cmd+c",
-    //     // "command": "extension.vim_cmd+c", // Vim extension command will exit Insert mode if used
-    //     "command": "execCopy",
-    //     "when": "editorTextFocus && vim.active && vim.overrideCopy && vim.use<D-c> && !inDebugRepl"
-    // },
-    /*
-    this also works, though I'm not sure where @bronson found this command:
-    https://vscodevim.slack.com/archives/C0ENQMTUM/p1586194542019000?thread_ts=1586017571.018100&cid=C0ENQMTUM
-    */
-    {
-        "key": "cmd+c",
-        "command": "editor.action.clipboardCopyAction",
-        "when": "editorTextFocus"
-    },
-    //   {
-    //     "key": "cmd+c",
-    //     "command": "execCopy"
-    //   }
-    /*
-    These already built into VSCode
-    (adding here to reference if I ever forget command)
-    https://stackoverflow.com/questions/44018175/visual-studio-code-hotkey-to-move-a-tab-from-one-of-two-split-editors-to-anothe
-    */
-    // {
-    //     "key": "ctrl+cmd+left",
-    //     "command": "workbench.action.moveEditorToPreviousGroup"
-    // },
-    // {
-    //     "key": "ctrl+cmd+right",
-    //     "command": "workbench.action.moveEditorToNextGroup"
-    // },
-    /*
+  /*
+    [Line Note extension] Create (or open current if exists) a note for current
+    line:
+  */
+  {
+      "key": "shift+alt+n",
+      "command": "linenote.addNote",
+      "when": "vim.mode == 'Normal' && textInputFocus"
+  },
+  /*
+  Go: Test Nearest (at cursor position)
+  */
+  {
+    "key": "cmd+alt+t",
+    "command": "go.debug.cursor"
+  },
+  {
+    "key": "alt+cmd+t",
+    "command": "-workbench.action.closeOtherEditors"
+  },
+  /*
+  Allow Vim "scroll down/up" in Explorer list
+  NOTE: doesn't correctly move cursor, so navigating will bring back to last 
+  cursor position >:C
+  Defaults: cmd+down|up
+
+  TODO: figure out how to fix this...
+  https://vscodevim.slack.com/archives/C0ENQMTUM/p1587048784046000
+  */
+  {
+    "key": "ctrl+e",
+    "command": "list.scrollDown",
+    "when": "listFocus && !inputFocus"
+  },
+  {
+    "key": "ctrl+y",
+    "command": "list.scrollUp",
+    "when": "listFocus && !inputFocus"
+  },
+  /*
+  "ctrl+cmd+left|right" moves editor to prev/next editor groups.
+  These will allow adding to below/above groups
+  */
+  {
+    "key": "ctrl+cmd+down",
+    "command": "workbench.action.moveEditorToBelowGroup",
+    "when": "editorTextFocus"
+  },
+  {
+    "key": "ctrl+cmd+up",
+    "command": "workbench.action.moveEditorToAboveGroup",
+    "when": "editorTextFocus"
+  },
+  /*
+  I disabled the (disorienting) "explorer.autoReveal" in settings.json
+  (where active editor file refreshes Explorer to show where file is located)
+  This will allow me to go to the active file location in Explorer
+  when I want that to happen
+  */
+  {
+    "key": "cmd+shift+a",
+    "command": "workbench.files.action.showActiveFileInExplorer",
+    "when": "textInputFocus"
+  },
+  // Get back to file (only works for Explorer, not OpenEditorsExplorer)
+  {
+    "key": "cmd+shift+a",
+    "command": "workbench.view.explorer",
+    "when": "filesExplorerFocus"
+    // "when": "filesExplorerFocus || workbench.explorer.openEditorsView."
+  },
+  /*
+  Add Vims default "shift+right"/etc functionality
+  https://vscodevim.slack.com/archives/C0ENQMTUM/p1586879441027800
+  cursorWordEndRight, cursorWordEndLeft, cursorWordStartRight or cursorWordStartLeft
+  */
+  // {
+  //     "key": "shift+up",
+  //     "command": "cursorPageUp",
+  //     "when": "textInputFocus"
+  // },
+  // {
+  //     "key": "shift+right",
+  //     "command": "cursorWordEndRight",
+  //     "when": "textInputFocus"
+  // },
+  // {
+  //     "key": "shift+down",
+  //     "command": "cursorPageDown",
+  //     "when": "textInputFocus"
+  // },
+  // {
+  //     "key": "shift+left",
+  //     "command": "cursorWordEndLeft",
+  //     "when": "textInputFocus"
+  // },
+  /*
+  Clear Terminal
+  Default: cmd+k
+  */
+  {
+    "key": "ctrl+l",
+    "command": "workbench.action.terminal.clear",
+    "when": "terminalFocus"
+  },
+  /*
+  Open Quick Open files to side, rather than in current editor group
+  (here for reminder)
+  */
+  // Default:
+  // {
+  //     "key": "cmd+enter",
+  //     "command": "workbench.action.alternativeAcceptSelectedQuickOpenItem",
+  //     "when": "inQuickOpen"
+  // },
+  /*
+  Override VSCodeVim's "cmd+c" command, which exits you from "insert mode"
+  https://vscodevim.slack.com/archives/C0ENQMTUM/p1586017571018100
+  */
+  // {
+  //     "key": "cmd+c",
+  //     // "command": "extension.vim_cmd+c", // Vim extension command will exit Insert mode if used
+  //     "command": "execCopy",
+  //     "when": "editorTextFocus && vim.active && vim.overrideCopy && vim.use<D-c> && !inDebugRepl"
+  // },
+  /*
+  this also works, though I'm not sure where @bronson found this command:
+  https://vscodevim.slack.com/archives/C0ENQMTUM/p1586194542019000?thread_ts=1586017571.018100&cid=C0ENQMTUM
+  */
+  {
+    "key": "cmd+c",
+    "command": "editor.action.clipboardCopyAction",
+    "when": "editorTextFocus"
+  },
+  //   {
+  //     "key": "cmd+c",
+  //     "command": "execCopy"
+  //   }
+  /*
+  These already built into VSCode
+  (adding here to reference if I ever forget command)
+  https://stackoverflow.com/questions/44018175/visual-studio-code-hotkey-to-move-a-tab-from-one-of-two-split-editors-to-anothe
+  */
+  // {
+  //     "key": "ctrl+cmd+left",
+  //     "command": "workbench.action.moveEditorToPreviousGroup"
+  // },
+  // {
+  //     "key": "ctrl+cmd+right",
+  //     "command": "workbench.action.moveEditorToNextGroup"
+  // },
+  /*
+  Navigate between panes
+  https://stackoverflow.com/a/50593160/1180523
+  */
+  {
+    "key": "ctrl+left",
+    "command": "workbench.action.navigateLeft"
+    // "when": "vim.mode == 'Normal' && textInputFocus"
+  },
+  {
+    "key": "ctrl+right",
+    "command": "workbench.action.navigateRight"
+    // "when": "vim.mode == 'Normal' && textInputFocus"
+  },
+  {
+    "key": "ctrl+up",
+    "command": "workbench.action.navigateUp"
+    // "when": "vim.mode == 'Normal' && textInputFocus"
+  },
+  {
+    "key": "ctrl+down",
+    "command": "workbench.action.navigateDown"
+    // "when": "vim.mode == 'Normal' && textInputFocus"
+  },
+  /*
     Navigate between panes
     https://stackoverflow.com/a/50593160/1180523
     */
-    {
-        "key": "ctrl+left",
-        "command": "workbench.action.navigateLeft",
-        // "when": "vim.mode == 'Normal' && textInputFocus"
-    },
-    {
-        "key": "ctrl+right",
-        "command": "workbench.action.navigateRight",
-        // "when": "vim.mode == 'Normal' && textInputFocus"
-    },
-    {
-        "key": "ctrl+up",
-        "command": "workbench.action.navigateUp",
-        // "when": "vim.mode == 'Normal' && textInputFocus"
-    },
-    {
-        "key": "ctrl+down",
-        "command": "workbench.action.navigateDown",
-        // "when": "vim.mode == 'Normal' && textInputFocus"
-    },
-    /*
-    Navigate between panes
-    https://stackoverflow.com/a/50593160/1180523
-    */
-    {
-        "key": "ctrl+h",
-        "command": "workbench.action.navigateLeft"
-    },
-    {
-        "key": "ctrl+l",
-        "command": "workbench.action.navigateRight",
-        "when": "!terminalFocus" /* Want to use ctrl+l to clear terminal, not navigate away */
-    },
-    {
-        "key": "ctrl+k",
-        "command": "workbench.action.navigateUp"
-    },
-    {
-        "key": "ctrl+j",
-        "command": "workbench.action.navigateDown"
-    },
-    /*
-    Navigate between File Explorer, and back to last pane/file/line
-    https://github.com/microsoft/vscode/issues/4557#issuecomment-276960041
-    https://vscodevim.slack.com/archives/C0ENQMTUM/p1583934716062300
-    */
-    {
-        "key": "ctrl+a",
-        "command": "workbench.view.explorer",
-        "when": "!filesExplorerFocus || filesExplorerFocus"
-    },
-    // doesn't work, need to run extension to do multiple commands
-    // https://stackoverflow.com/a/49612562/1180523
-    // {
-    //     "key": "ctrl+a",
-    //     "commands": [
-    //         "workbench.view.explorer",
-    //         "workbench.action.toggleSidebarVisibility",
-    //     ],
-    //     "when": "filesExplorerFocus"
-    // },
-    /*
-    Open Context menu (right click menu) from File Explorer
-    (don't need to open context menu, just run the shortcuts to do the actions you want)
-    https://vscodevim.slack.com/archives/C0ENQMTUM/p1585145701006900
-    https://github.com/microsoft/vscode/issues/93497
-    */
-    // Insert/Add file childnode
-    // NOTE: see below "ctrl+n" when vim.mode == 'Normal'
-    {
-        "key": "i",
-        "command": "explorer.newFile",
-        "when": "filesExplorerFocus && !inputFocus"
-    },
-    // Insert/Add folder childnode
-    // NOTE: see below "ctrl+shift+n"
-    {
-        "key": "shift+i",
-        "command": "explorer.newFolder",
-        "when": "filesExplorerFocus && !inputFocus"
-    },
-    // Rename current node
-    // Default: enter
-    // "key": "c i w", // Doesn't work... conflicts with above "i"
-    {
-        "key": "r", // replace
-        "command": "renameFile",
-        "when": "explorerViewletVisible && filesExplorerFocus && !explorerResourceIsRoot && !explorerResourceReadonly && !inputFocus"
-    },
-    {
-        "key": "m", // Nerdtree (m)ove
-        "command": "renameFile",
-        "when": "explorerViewletVisible && filesExplorerFocus && !explorerResourceIsRoot && !explorerResourceReadonly && !inputFocus"
-    },
-    // Delete current node
-    // Default: cmd+backspace
-    {
-        "key": "d",
-        "command": "moveFileToTrash",
-        "when": "explorerResourceMoveableToTrash && explorerViewletVisible && filesExplorerFocus && !explorerResourceReadonly && !inputFocus"
-    },
-    // Yank current node
-    // Default: cmd+c
-    // TODO: how can I do c || y???
-    {
-        "key": "c",
-        "command": "filesExplorer.copy",
-        "when": "explorerViewletVisible && filesExplorerFocus && !explorerResourceIsRoot && !inputFocus"
-    },
-    {
-        "key": "y",
-        "command": "filesExplorer.copy",
-        "when": "explorerViewletVisible && filesExplorerFocus && !explorerResourceIsRoot && !inputFocus"
-    },
-    // Paste yanked node
-    // Default: cmd+v
-    {
-        "key": "p",
-        "command": "filesExplorer.paste",
-        "when": "explorerViewletVisible && filesExplorerFocus && !explorerResourceReadonly && !inputFocus"
-    },
-    /*
-    Create new file in current working folder
-    https://stackoverflow.com/a/39599731/1180523
-    NOTE: see above "i" when explorderViewletVisible
-    */
-    {
-        "key": "ctrl+n",
-        "command": "explorer.newFile",
-        "when": "vim.mode == 'Normal'"
-    },
-    /*
-    Create new folder in current working folder
-    https://stackoverflow.com/a/39599731/1180523
-    NOTE: see above "shift+i" when explorderViewletVisible
-    */
-    {
-        "key": "ctrl+shift+n",
-        "command": "explorer.newFolder"
-    },
-    /*
-    Open/Navigate the suggestions dropdown via VIM while in Insert mode
-    https://vscodevim.slack.com/archives/C0ENQMTUM/p1582202670058400
-    https://www.gitmemory.com/issue/VSCodeVim/Vim/1372/504856503
-    */
-    {
-        "key": "ctrl+n",
-        "command": "editor.action.triggerSuggest",
-        "when": "vim.mode == 'Insert'"
-    },
-    {
-        "key": "ctrl+n",
-        "command": "selectNextSuggestion",
-        "when": "suggestWidgetVisible"
-    },
-    {
-        "key": "ctrl+p",
-        "command": "selectPrevSuggestion",
-        "when": "suggestWidgetVisible"
-    },
-    /*
-    I keep trying to open the commands panel with this shortcut
-    (instead of "shift+cmd+p"), adding it here as alternate method
-    */
-    {
-        "key": "ctrl+cmd+p",
-        "command": "workbench.action.showCommands"
-    },
-    // /*
-    // Open file search "Open View"
-    // */
-    // {
-    //     "key": "cmd+shift+o",
-    //     "command": "workbench.action.openView"
-    // },
-    // {
-    //     "key": "ctrl+cmd+o",
-    //     "command": "workbench.action.openView"
-    // },
+  {
+    "key": "ctrl+h",
+    "command": "workbench.action.navigateLeft"
+  },
+  {
+    "key": "ctrl+l",
+    "command": "workbench.action.navigateRight",
+    "when": "!terminalFocus" /* Want to use ctrl+l to clear terminal, not navigate away */
+  },
+  {
+    "key": "ctrl+k",
+    "command": "workbench.action.navigateUp"
+  },
+  {
+    "key": "ctrl+j",
+    "command": "workbench.action.navigateDown"
+  },
+  /*
+  Navigate between File Explorer, and back to last pane/file/line
+  https://github.com/microsoft/vscode/issues/4557#issuecomment-276960041
+  https://vscodevim.slack.com/archives/C0ENQMTUM/p1583934716062300
+  */
+  {
+    "key": "ctrl+a",
+    "command": "workbench.view.explorer",
+    "when": "textInputFocus && !filesExplorerFocus || filesExplorerFocus"
+  },
+  // doesn't work, need to run extension to do multiple commands
+  // https://stackoverflow.com/a/49612562/1180523
+  // {
+  //     "key": "ctrl+a",
+  //     "commands": [
+  //         "workbench.view.explorer",
+  //         "workbench.action.toggleSidebarVisibility",
+  //     ],
+  //     "when": "filesExplorerFocus"
+  // },
+  /*
+  Open Context menu (right click menu) from File Explorer
+  (don't need to open context menu, just run the shortcuts to do the actions you want)
+  https://vscodevim.slack.com/archives/C0ENQMTUM/p1585145701006900
+  https://github.com/microsoft/vscode/issues/93497
+  */
+  // Insert/Add file childnode
+  // NOTE: see below "ctrl+n" when vim.mode == 'Normal'
+  {
+    "key": "i",
+    "command": "explorer.newFile",
+    "when": "filesExplorerFocus && !inputFocus"
+  },
+  // Insert/Add folder childnode
+  // NOTE: see below "ctrl+shift+n"
+  {
+    "key": "shift+i",
+    "command": "explorer.newFolder",
+    "when": "filesExplorerFocus && !inputFocus"
+  },
+  // Rename current node
+  // Default: enter
+  // "key": "c i w", // Doesn't work... conflicts with above "i"
+  {
+    "key": "r", // replace
+    "command": "renameFile",
+    "when": "explorerViewletVisible && filesExplorerFocus && !explorerResourceIsRoot && !explorerResourceReadonly && !inputFocus"
+  },
+  {
+    "key": "m", // Nerdtree (m)ove
+    "command": "renameFile",
+    "when": "explorerViewletVisible && filesExplorerFocus && !explorerResourceIsRoot && !explorerResourceReadonly && !inputFocus"
+  },
+  // Delete current node
+  // Default: cmd+backspace
+  {
+    "key": "d",
+    "command": "moveFileToTrash",
+    "when": "explorerResourceMoveableToTrash && explorerViewletVisible && filesExplorerFocus && !explorerResourceReadonly && !inputFocus"
+  },
+  // Yank current node
+  // Default: cmd+c
+  // TODO: how can I do c || y???
+  {
+    "key": "c",
+    "command": "filesExplorer.copy",
+    "when": "explorerViewletVisible && filesExplorerFocus && !explorerResourceIsRoot && !inputFocus"
+  },
+  {
+    "key": "y",
+    "command": "filesExplorer.copy",
+    "when": "explorerViewletVisible && filesExplorerFocus && !explorerResourceIsRoot && !inputFocus"
+  },
+  // Paste yanked node
+  // Default: cmd+v
+  {
+    "key": "p",
+    "command": "filesExplorer.paste",
+    "when": "explorerViewletVisible && filesExplorerFocus && !explorerResourceReadonly && !inputFocus"
+  },
+  /*
+  Create new file in current working folder
+  https://stackoverflow.com/a/39599731/1180523
+  NOTE: see above "i" when explorderViewletVisible
+  */
+  {
+    "key": "ctrl+n",
+    "command": "explorer.newFile",
+    // "when": "vim.mode == 'Normal'"
+    "when": "filesExplorerFocus && !inputFocus"
+  },
+  /*
+  Create new folder in current working folder
+  https://stackoverflow.com/a/39599731/1180523
+  NOTE: see above "shift+i" when explorderViewletVisible
+  */
+  {
+    "key": "ctrl+shift+n",
+    "command": "explorer.newFolder"
+  },
+  /*
+  Open/Navigate the suggestions dropdown via VIM while in Insert mode
+  https://vscodevim.slack.com/archives/C0ENQMTUM/p1582202670058400
+  https://www.gitmemory.com/issue/VSCodeVim/Vim/1372/504856503
+  */
+  {
+    "key": "ctrl+n",
+    "command": "editor.action.triggerSuggest",
+    "when": "vim.mode == 'Insert'"
+  },
+  // hide suggest (this has the side-effect of not exiting insert mode):
+  // {
+  //   "key": "escape",
+  //   "command": "hideSuggestWidget",
+  //   "when": "suggestWidgetVisible && textInputFocus"
+  // },
+  {
+    "key": "ctrl+n",
+    "command": "selectNextSuggestion",
+    "when": "suggestWidgetVisible"
+  },
+  {
+    "key": "ctrl+p",
+    "command": "selectPrevSuggestion",
+    "when": "suggestWidgetVisible"
+  },
+  /*
+  I keep trying to open the commands panel with this shortcut
+  (instead of "shift+cmd+p"), adding it here as alternate method
+  */
+  {
+    "key": "ctrl+cmd+p",
+    "command": "workbench.action.showCommands"
+  }
 ]

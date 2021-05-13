@@ -67,15 +67,25 @@ set autoindent
 " Maps keys to commands
 map <F2> :NERDTreeToggle<CR>
 
+" Testing <leader>
+" https://tuckerchapman.com/2018/06/16/how-to-use-the-vim-leader-key/
+" https://github.com/janko/vim-test
+" Testing leader+nt (,nt) to toggle Nerdtree
+" Default leaders is: \
+" To change, do (replace , with desired leader):
+:let mapleader = ","
+" e for explorer (to match VSCodeVim mapping)
+nnoremap <leader>e :NERDTreeToggle<CR>
+
 " Window movement (specific for Chromebook)
 nmap <C-a> :wincmd h<CR>
-nmap <left> :wincmd h<CR>
+" nmap <left> :wincmd h<CR>
 nmap <C-h> :wincmd h<CR>
-nmap <right> :wincmd l<CR>
+" nmap <right> :wincmd l<CR>
 nmap <C-l> :wincmd l<CR>
-nmap <up> :wincmd k<CR>
+" nmap <up> :wincmd k<CR>
 nmap <C-k> :wincmd k<CR>
-nmap <down> :wincmd j<CR>
+" nmap <down> :wincmd j<CR>
 nmap <C-j> :wincmd j<CR>
 
 set encoding=utf-8
