@@ -329,5 +329,10 @@
   {
     "key": "ctrl+cmd+p",
     "command": "workbench.action.showCommands"
+  },
+  {
+    "key": "ctrl+shift+a",
+    "command": "-cursorLineStartSelect",
+    "when": "textInputFocus"
   }
 ]

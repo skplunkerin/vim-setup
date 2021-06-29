@@ -13,6 +13,32 @@
   ],
   "vim.normalModeKeyBindingsNonRecursive": [
     /*
+    Go to next problem:
+    */
+    {
+        "before": ["g","h","n"],
+        "after": [],
+        "commands": [
+          {
+            "command": "editor.action.marker.next",
+            "when": "editorFocus"
+          }
+        ]
+    },
+    /*
+    Go to previous problem:
+    */
+    {
+        "before": ["g","h","p"],
+        "after": [],
+        "commands": [
+          {
+            "command": "editor.action.marker.prev",
+            "when": "editorFocus"
+          }
+        ]
+    },
+    /*
     [Line Note extension] Open note on current line:
     */
     {
@@ -72,7 +98,7 @@
     {
       "before": ["g", "i"],
       "commands": ["editor.action.goToImplementation"]
-    }
+    },
   ],
   "vim.timeout": 250,
   "go.formatTool": "goimports",
@@ -116,14 +142,9 @@
     // (replaced by having separate colors defined in editor.rulers)
     // "editorRuler.foreground": "#FF786A",
   },
-  // "editor.trimAutoWhitespace": false,
-  // "files.trimTrailingWhitespace": false,
-  // "editor.trimAutoWhitespace": false,
-  // "editor.renderWhitespace": "all",
-  "editor.tabSize": 2,
   "[ruby]": {
-    "editor.insertSpaces": true,
-    "editor.tabSize": 2,
+    "editor.insertSpaces": false,
+    "editor.tabSize": 8,
     "editor.autoIndent": "advanced"
   },
   "[rust]": {
@@ -132,9 +153,6 @@
     "editor.autoIndent": "advanced"
   },
   "window.title": "${activeEditorMedium}${separator}${rootName}",
-  "[json]": {
-    "editor.defaultFormatter": "esbenp.prettier-vscode"
-  },
   "vim.neovimPath": "/usr/local/bin/nvim",
   "vim.enableNeovim": true,
   "vim.ignorecase": false,
@@ -157,8 +175,90 @@
   // "go.gopath": "/usr/local/go/bin/go",
   // "vim.incsearch": false
   "debug.console.wordWrap": true,
+  "go.toolsManagement.autoUpdate": true,
+  "[json]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
+  },
   "[html]": {
     "editor.defaultFormatter": "esbenp.prettier-vscode"
   },
-  "go.toolsManagement.autoUpdate": true,
+  "[javascript]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
+  },
+  "[typescript]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
+  },
+  "[typescriptreact]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
+  },
+  "cSpell.userWords": [
+    "Bytea",
+    "Confs",
+    "Enqueuer",
+    "Getenv",
+    "Infof",
+    "Infusionsoft",
+    "JSON's",
+    "Mashery",
+    "Printf",
+    "Pseudocode",
+    "Repos",
+    "SETEX",
+    "Skipio",
+    "Skipio's",
+    "Sprintf",
+    "Stargate",
+    "Upsert",
+    "Warnf",
+    "Zoho's",
+    "bugsnag",
+    "devserver",
+    "freemium",
+    "gobuffalo",
+    "gofrs",
+    "gomock",
+    "goqu",
+    "guregu",
+    "hubspotcrm",
+    "ioutil",
+    "jwardle",
+    "ngrok",
+    "pgtype",
+    "resps",
+    "stretchr",
+    "struct",
+    "timestamptz",
+    "utfbom",
+    "zohocrmv"
+  ],
+  "cSpell.ignoreRegExpList": [
+    "/\"github\\.com.[^\\\"]*\"/"
+  ],
+  "terminal.integrated.tabs.enabled": true,
+  "cSpell.enabled": true,
+  "editor.cursorStyle": "line",
+  "editor.insertSpaces": false,
+  "editor.lineNumbers": "on",
+  "editor.wordSeparators": "/\\()\"':,.;<>~!@#$%^&*|+=[]{}`?-",
+  "editor.wordWrap": "off",
+  "editor.tabSize": 2,
+  "editor.renderWhitespace": "all",
+  // TODO: figure out how to add a custom dictionary to cSpell, where the
+  // dropdown option of "Add: "{x}" to {custom} dictionary" is available.
+  // Apparently you can add custom dictionaries (see below attempts), but I see
+  // no way of knowing if this works, if I"m doing it wrong, or if adding a
+  // custom dictionary doesn't mean what I think it means. :/
+  //
+  // "cSpell.languageSettings": [
+  //   // { "languageId": "go",     "allowCompoundWords": true,  "dictionaries": ["go"] },
+  //   // { "languageId": "*",     "allowCompoundWords": true,  "dictionaries": ["go"] },
+  // ],
+  // List of dictionaries to use when checking files.
+  // "cSpell.dictionaries": [
+  //   "go"
+  // ],
+  // "cSpell.dictionaryDefinitions": [
+  //   // { "name": "go", "path": "/Users/guest/projects/cSpell-WordLists/dictionaries/medicalterms-en.txt"},
+  //   { "name": "go", "path": "/Users/chrisreynolds/Library/Application Support/Code/User/cSpell-WordLists/dictionaries/go-en.txt"},
+  // ],
 }
