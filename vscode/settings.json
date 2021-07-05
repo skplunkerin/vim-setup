@@ -193,6 +193,8 @@
   },
   "cSpell.userWords": [
     "Bytea",
+    "CALENDLY",
+    "CSVs",
     "Confs",
     "Enqueuer",
     "Getenv",
@@ -222,12 +224,14 @@
     "hubspotcrm",
     "ioutil",
     "jwardle",
+    "minifier",
     "ngrok",
     "pgtype",
     "resps",
     "stretchr",
     "struct",
     "timestamptz",
+    "unmarshalling",
     "utfbom",
     "zohocrmv"
   ],
