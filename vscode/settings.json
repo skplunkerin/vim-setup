@@ -180,7 +180,7 @@
     "editor.defaultFormatter": "esbenp.prettier-vscode"
   },
   "[html]": {
-    "editor.defaultFormatter": "esbenp.prettier-vscode"
+    "editor.defaultFormatter": "vscode.html-language-features"
   },
   "[javascript]": {
     "editor.defaultFormatter": "esbenp.prettier-vscode"
@@ -233,7 +233,25 @@
     "timestamptz",
     "unmarshalling",
     "utfbom",
-    "zohocrmv"
+    "zohocrmv",
+    "Behaviour",
+    "Bootcamp",
+    "Favicons",
+    "Grider",
+    "Roadmap",
+    "Structs",
+    "Udemy",
+    "bcrypt",
+    "ebiten",
+    "ebitenutil",
+    "gohtml",
+    "gorm",
+    "hajimehoshi",
+    "perr",
+    "pgconn",
+    "postgres",
+    "psql",
+    "signup"
   ],
   "cSpell.ignoreRegExpList": [
     "/\"github\\.com.[^\\\"]*\"/"
@@ -265,4 +283,8 @@
   //   // { "name": "go", "path": "/Users/guest/projects/cSpell-WordLists/dictionaries/medicalterms-en.txt"},
   //   { "name": "go", "path": "/Users/chrisreynolds/Library/Application Support/Code/User/cSpell-WordLists/dictionaries/go-en.txt"},
   // ],
+  "html.format.indentInnerHtml": true,
+  "files.associations": {
+    "*.gohtml": "html"
+  },
 }
