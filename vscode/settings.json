@@ -13,6 +13,29 @@
   ],
   "vim.normalModeKeyBindingsNonRecursive": [
     /*
+    Open definition location (of the definition seen using ["g","h"]):
+    */
+    {
+      "before": ["g","h","i"],
+      "commands": [
+        {
+          // Open in current frame:
+          "command": "editor.action.revealDefinition",
+          "when": "editorHasDefinitionProvider && editorTextFocus && !isInEmbeddedEditor"
+        }
+      ],
+    },
+    {
+      "before": ["g","h","o"],
+      "commands": [
+        {
+          // Open in separate frame:
+          "command": "editor.action.revealDefinitionAside",
+          "when": "editorHasDefinitionProvider && editorTextFocus && !isInEmbeddedEditor"
+        }
+      ],
+    },
+    /*
     Go to next problem:
     */
     {
@@ -200,6 +223,7 @@
     "CALENDLY",
     "Confs",
     "CSVs",
+    "DECR",
     "devserver",
     "ebiten",
     "ebitenutil",
@@ -252,6 +276,7 @@
     "Warnf",
     "Zoho's",
     "zohocrmv"
+    "ZRANGE",
   ],
   "cSpell.ignoreRegExpList": [
     "/\"github\\.com.[^\\\"]*\"/"
