@@ -1,13 +1,18 @@
 // Place your key bindings in this file to override the defaults
 [
+  {
+    "key": "shift+cmd+i",
+    "command": "editor.action.revealDefinitionAside",
+    "when": "editorHasDefinitionProvider && editorTextFocus && !isInEmbeddedEditor"
+  },
   /*
     [Line Note extension] Create (or open current if exists) a note for current
     line:
   */
   {
-      "key": "shift+alt+n",
-      "command": "linenote.addNote",
-      "when": "vim.mode == 'Normal' && textInputFocus"
+    "key": "shift+alt+n",
+    "command": "linenote.addNote",
+    "when": "vim.mode == 'Normal' && textInputFocus"
   },
   /*
   Go: Test Nearest (at cursor position)
