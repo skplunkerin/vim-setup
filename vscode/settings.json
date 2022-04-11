@@ -13,65 +13,81 @@
   ],
   "vim.normalModeKeyBindingsNonRecursive": [
     /*
+    Open CodeStream codemark comment (from the current cursor position):
+    */
+    // Don't think there's a command I can use for this :/
+    // {
+    //   "before": ["g", "h", "o"],
+    //   "commands": [
+    //     {
+    //       // Open in current frame:
+    //       // "command": "codestream.openCodemark"
+    //       // "command": "codestream.showReviewDiff"
+    //       // "command": "activitybar.codestream.focus"
+    //       // "command": "workbench.view.extension.codestream-activitybar"
+    //     }
+    //   ]
+    // },
+    /*
     Open definition location (of the definition seen using ["g","h"]):
     */
     {
-      "before": ["g","h","i"],
+      "before": ["g", "h", "i"],
       "commands": [
         {
           // Open in current frame:
           "command": "editor.action.revealDefinition",
           "when": "editorHasDefinitionProvider && editorTextFocus && !isInEmbeddedEditor"
         }
-      ],
+      ]
     },
     {
-      "before": ["g","h","o"],
+      "before": ["g", "h", "o"],
       "commands": [
         {
           // Open in separate frame:
           "command": "editor.action.revealDefinitionAside",
           "when": "editorHasDefinitionProvider && editorTextFocus && !isInEmbeddedEditor"
         }
-      ],
+      ]
     },
     /*
     Go to next problem:
     */
     {
-        "before": ["g","h","n"],
-        "after": [],
-        "commands": [
-          {
-            "command": "editor.action.marker.next",
-            "when": "editorFocus"
-          }
-        ]
+      "before": ["g", "h", "n"],
+      "after": [],
+      "commands": [
+        {
+          "command": "editor.action.marker.next",
+          "when": "editorFocus"
+        }
+      ]
     },
     /*
     Go to previous problem:
     */
     {
-        "before": ["g","h","p"],
-        "after": [],
-        "commands": [
-          {
-            "command": "editor.action.marker.prev",
-            "when": "editorFocus"
-          }
-        ]
+      "before": ["g", "h", "p"],
+      "after": [],
+      "commands": [
+        {
+          "command": "editor.action.marker.prev",
+          "when": "editorFocus"
+        }
+      ]
     },
     /*
     [Line Note extension] Open note on current line:
     */
     {
-        "before": ["g","n"],
-        "after": [],
-        "commands": [
-          {
-            "command": "linenote.openNote"
-          }
-        ]
+      "before": ["g", "n"],
+      "after": [],
+      "commands": [
+        {
+          "command": "linenote.openNote"
+        }
+      ]
     },
     /*
     This is a workaround for VSCodeVim's issue #2007:
@@ -108,7 +124,7 @@
     */
     {
       "before": ["<leader>", "e"],
-      "commands": ["workbench.action.toggleSidebarVisibility"],
+      "commands": ["workbench.action.toggleSidebarVisibility"]
     },
     /*
     Go Test nearest (at cursor)
@@ -121,11 +137,11 @@
     {
       "before": ["g", "i"],
       "commands": ["editor.action.goToImplementation"]
-    },
+    }
   ],
   "vim.timeout": 250,
   "go.formatTool": "goimports",
-  // this causes false Go errors in Problems
+  // this causes false Go errors in `Problems` console tab:
   // "go.useLanguageServer": true,
   "workbench.editor.enablePreview": false,
   "editor.formatOnSave": true,
@@ -155,25 +171,12 @@
       "color": "#E4473A"
     }
   ],
-  "[git-commit]": {
-    "editor.rulers": [50]
-  },
   "workbench.colorCustomizations": {
     // Mini Map
     "minimap.background": "#00000055"
     // Vertical Guide Ruler
     // (replaced by having separate colors defined in editor.rulers)
     // "editorRuler.foreground": "#FF786A",
-  },
-  "[ruby]": {
-    "editor.insertSpaces": false,
-    "editor.tabSize": 8,
-    "editor.autoIndent": "advanced"
-  },
-  "[rust]": {
-    "editor.insertSpaces": true,
-    "editor.tabSize": 4,
-    "editor.autoIndent": "advanced"
   },
   "window.title": "${activeEditorMedium}${separator}${rootName}",
   "vim.neovimPath": "/usr/local/bin/nvim",
@@ -190,7 +193,6 @@
   "explorer.autoReveal": false,
   "vim.leader": ",",
   "vim.vimrc.enable": true,
-  "window.zoomLevel": 0,
   "editor.parameterHints.enabled": false,
   "editor.find.cursorMoveOnType": false,
   "vim.hlsearch": true,
@@ -199,96 +201,181 @@
   // "vim.incsearch": false
   "debug.console.wordWrap": true,
   "go.toolsManagement.autoUpdate": true,
+  "editor.insertSpaces": true,
+  "editor.tabSize": 2,
+  "[ruby]": {
+    "editor.insertSpaces": false,
+    "editor.tabSize": 2,
+    "editor.autoIndent": "advanced"
+  },
+  "[rust]": {
+    "editor.insertSpaces": true,
+    "editor.tabSize": 4,
+    "editor.autoIndent": "advanced"
+  },
   "[json]": {
+    "editor.insertSpaces": true,
+    "editor.tabSize": 2,
     "editor.defaultFormatter": "esbenp.prettier-vscode"
   },
   "[html]": {
+    "editor.insertSpaces": true,
+    "editor.tabSize": 20,
     "editor.defaultFormatter": "vscode.html-language-features"
   },
   "[javascript]": {
+    "editor.insertSpaces": true,
+    "editor.tabSize": 2,
     "editor.defaultFormatter": "esbenp.prettier-vscode"
   },
   "[typescript]": {
+    "editor.insertSpaces": true,
+    "editor.tabSize": 2,
     "editor.defaultFormatter": "esbenp.prettier-vscode"
   },
   "[typescriptreact]": {
+    "editor.insertSpaces": true,
+    "editor.tabSize": 2,
     "editor.defaultFormatter": "esbenp.prettier-vscode"
   },
+  "[go]": {
+    "editor.insertSpaces": false,
+    "editor.tabSize": 2
+  },
+  "[markdown]": {
+    "editor.insertSpaces": true,
+    "editor.tabSize": 2,
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
+  },
+  "[git-commit]": {
+    "editor.rulers": [50]
+  },
   "cSpell.userWords": [
+    "appts",
+    "authed",
+    "awseb",
+    "awslogs",
     "bcrypt",
     "Behaviour",
+    "bools",
     "Bootcamp",
     "bugsnag",
+    "BUIDLing",
+    "buildspec",
+    "Burstable",
     "Bytea",
     "CALENDLY",
+    "clubready",
+    "CNAME",
+    "Codeship",
     "Confs",
+    "Conslt",
+    "cooldown",
+    "creds",
     "CSVs",
+    "dbdata",
     "DECR",
+    "devpassword",
     "devserver",
+    "dftxtrvkx",
+    "dockerized",
+    "dockerizing",
+    "Dockerrun",
+    "dyno",
+    "ebcli",
+    "ebextensions",
     "ebiten",
     "ebitenutil",
+    "Enqueable",
     "Enqueuer",
     "Favicons",
     "freemium",
     "Getenv",
+    "gmail",
     "gobuffalo",
+    "godotenv",
     "gofrs",
     "gohtml",
     "gomock",
+    "GOPATH",
     "goqu",
     "gorm",
     "Grider",
     "guregu",
+    "gzipped",
     "hajimehoshi",
     "hubspotcrm",
+    "IMDS",
     "Infof",
     "Infusionsoft",
     "ioutil",
+    "iowait",
+    "jessewardle",
     "JSON's",
     "jwardle",
+    "Keap",
+    "keyname",
+    "Keyspace",
+    "ldflags",
+    "loadbalancer",
     "Mashery",
+    "Mindbody",
     "minifier",
+    "mockgen",
+    "Moralis",
     "ngrok",
     "perr",
     "pgconn",
+    "pgcrypto",
     "pgtype",
+    "Photoshop",
+    "Pleitez",
     "postgres",
     "Printf",
+    "procstat",
     "Pseudocode",
     "psql",
+    "rdata",
     "Repos",
+    "requirepass",
     "resps",
     "Roadmap",
     "SETEX",
     "signup",
-    "Skipio's",
     "Skipio",
+    "Skipio's",
+    "SMEMBERS",
     "Sprintf",
+    "SREM",
     "Stargate",
+    "stdouterr",
     "stretchr",
     "struct",
     "Structs",
+    "targetgroup",
+    "taskdefinition",
+    "testhelper",
     "timestamptz",
+    "totalcpu",
+    "Trello",
     "Udemy",
+    "Unmapper",
     "unmarshalling",
     "Upsert",
+    "Upserts",
     "utfbom",
     "Warnf",
     "Zoho's",
-    "zohocrmv"
-    "ZRANGE",
+    "zohocrmv",
+    "ZRANGE"
   ],
-  "cSpell.ignoreRegExpList": [
-    "/\"github\\.com.[^\\\"]*\"/"
-  ],
+  "cSpell.ignoreRegExpList": ["/\"github\\.com.[^\\\"]*\"/"],
   "terminal.integrated.tabs.enabled": true,
   "cSpell.enabled": true,
   "editor.cursorStyle": "line",
-  "editor.insertSpaces": false,
   "editor.lineNumbers": "on",
   "editor.wordSeparators": "/\\()\"':,.;<>~!@#$%^&*|+=[]{}`?-",
   "editor.wordWrap": "off",
-  "editor.tabSize": 2,
   "editor.renderWhitespace": "all",
   // TODO: figure out how to add a custom dictionary to cSpell, where the
   // dropdown option of "Add: "{x}" to {custom} dictionary" is available.
@@ -310,6 +397,10 @@
   // ],
   "html.format.indentInnerHtml": true,
   "files.associations": {
-    "*.gohtml": "html"
+    "*.gohtml": "html",
+    "*.config": "yaml"
   },
+  "editor.hover.delay": 2000,
+  "codestream.serverUrl": "https://api.codestream.com",
+  "codestream.email": "reynolds87chris@gmail.com"
 }
