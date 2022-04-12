@@ -30,12 +30,12 @@ inoremap <expr> <CR> pumvisible() ? "\<C-y>" : "\<C-g>u\<CR>"
 " Macbook Pro (MBP) Touchbar ESC fixed
 " https://csswizardry.com/2017/01/preparing-vim-for-apples-touch-bar/
 " Insert mode can be escaped by typing either of the following: kj, qqq
-inoremap kj <esc>
-inoremap qqq <esc>
+" inoremap kj <esc>
+" inoremap qqq <esc>
 " Take training wheels off so ESC does nothing:
 " (THESE DON'T WORK AND BREAK ':' FROM WORKING)
-" Map `Escape` to ‘nothing’ in Normal, Visual, Select, Operator-pending modes
-"noremap: <esc> <nop>
+""""" Map `Escape` to ‘nothing’ in Normal, Visual, Select, Operator-pending modes
+"""""noremap: <esc> <nop>
 " Map `Escape` to ‘nothing’ in Insert and Command modes
 "noremap!: <esc> <nop>
 
