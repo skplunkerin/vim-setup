@@ -45,6 +45,62 @@
     "when": "listFocus && !inputFocus"
   },
   /*
+  Allow Vim's line/page "scroll down/up" to work properlly with VSCode's
+  collapsed (folded) nested items.
+  (the normal VSVim scrolling stops once a collapsed item hits the top/bottom)
+
+  NOTE: this succeeds in scrolling past the folded line, but fails in that it
+  leaves the cursor behind when you scroll past the screen... once you try
+  j,k,h,l movement, you'll shoot back to where the cursor previously was.
+  */
+  // {
+  //   "key": "ctrl+y",
+  //   "command": "scrollLineUp",
+  //   "when": "vim.mode == 'Normal' && textInputFocus"
+  // },
+  // {
+  //   "key": "ctrl+e",
+  //   "command": "scrollLineDown",
+  //   "when": "vim.mode == 'Normal' && textInputFocus"
+  // },
+  // {
+  //   "key": "ctrl+u",
+  //   "command": "scrollPageUp",
+  //   "when": "vim.mode == 'Normal' && textInputFocus"
+  // },
+  // {
+  //   "key": "ctrl+d",
+  //   "command": "scrollPageDown",
+  //   "when": "vim.mode == 'Normal' && textInputFocus"
+  // },
+  /*
+  Better match the Vim cursor up/down to match the VSCode's cursor up/down:
+  (in particular, when an item is collapsed (folded), the VSCode cursor will end
+  up opening it, but the VSVim up/down won't, it just gets stuck on the top of
+  the collapse.)
+
+  P.S. I don't like that the collapsed item opens up with this... I'd like to
+  change VSCode to just treat it like a single line, forcing me to manually
+  un-collapse it.
+  - Looks like this VSVim "vim.foldfix" hack is just for this, but it's not a
+    complete fix as they're needing to wait for VSCode to allow proper API
+    access to create an official fix.
+    https://stackoverflow.com/a/59129741/1180523
+    - sadly, this hack fix doesn't work with scrolling/page-scrolling
+      BUT, if you move the cursor past the folded line first, then
+      scroll/page-scroll, it's a work-around.
+  */
+  {
+    "key": "k",
+    "command": "extension.vim_up",
+    "when": "vim.mode == 'Normal' && editorTextFocus && vim.active && !inDebugRepl && !parameterHintsVisible && !suggestWidgetVisible"
+  },
+  {
+    "key": "j",
+    "command": "extension.vim_down",
+    "when": "vim.mode == 'Normal' && editorTextFocus && vim.active && !inDebugRepl && !parameterHintsVisible && !suggestWidgetVisible"
+  },
+  /*
   "ctrl+cmd+left|right" moves editor to prev/next editor groups.
   These will allow adding to below/above groups
   */
@@ -367,5 +423,101 @@
     "key": "cmd+\\",
     "command": "-workbench.action.terminal.splitInstance",
     "when": "terminalProcessSupported && terminalTabsFocus"
-  }
+  },
+  {
+    "key": "ctrl+-",
+    "command": "-workbench.action.navigateBack"
+  },
+  {
+    "key": "ctrl+1",
+    "command": "-workbench.action.openEditorAtIndex1"
+  },
+  {
+    "key": "ctrl+2",
+    "command": "-workbench.action.openEditorAtIndex2"
+  },
+  {
+    "key": "ctrl+3",
+    "command": "-workbench.action.openEditorAtIndex3"
+  },
+  {
+    "key": "ctrl+4",
+    "command": "-workbench.action.openEditorAtIndex4"
+  },
+  {
+    "key": "ctrl+5",
+    "command": "-workbench.action.openEditorAtIndex5"
+  },
+  {
+    "key": "ctrl+6",
+    "command": "-workbench.action.openEditorAtIndex6"
+  },
+  {
+    "key": "ctrl+7",
+    "command": "-workbench.action.openEditorAtIndex7"
+  },
+  {
+    "key": "ctrl+8",
+    "command": "-workbench.action.openEditorAtIndex8"
+  },
+  {
+    "key": "ctrl+9",
+    "command": "-workbench.action.openEditorAtIndex9"
+  },
+  {
+    "key": "ctrl+0",
+    "command": "-workbench.action.lastEditorInGroup"
+  },
+  {
+    "key": "ctrl+]",
+    "command": "-extension.vim_ctrl+]",
+    "when": "editorTextFocus && vim.active && vim.use<C-]> && !inDebugRepl"
+  },
+  {
+    "key": "ctrl+o",
+    "command": "-extension.vim_ctrl+o",
+    "when": "editorTextFocus && vim.active && vim.use<C-o> && !inDebugRepl"
+  },
+  {
+    "key": "ctrl+o",
+    "command": "-lineBreakInsert",
+    "when": "textInputFocus && !editorReadonly"
+  },
+  {
+    "key": "cmd+2",
+    "command": "-workbench.action.focusSecondEditorGroup"
+  },
+  {
+    "key": "cmd+3",
+    "command": "workbench.action.focusThirdEditorGroup"
+  },
+  {
+    "key": "cmd+3",
+    "command": "-workbench.action.focusThirdEditorGroup"
+  },
+  {
+    "key": "cmd+2",
+    "command": "workbench.action.focusSecondEditorGroup"
+  },
+  // Unsure of these default bindings (particularly "ctrl+p")
+  // {
+  //   "key": "ctrl+n",
+  //   "command": "-cursorDown",
+  //   "when": "textInputFocus"
+  // },
+  // {
+  //   "key": "ctrl+p",
+  //   "command": "-cursorUp",
+  //   "when": "textInputFocus"
+  // },
+  // {
+  //   "key": "ctrl+p",
+  //   "command": "-showPrevParameterHint",
+  //   "when": "editorFocus && parameterHintsMultipleSignatures && parameterHintsVisible"
+  // },
+  // {
+  //   "key": "ctrl+p",
+  //   "command": "-selectPrevSuggestion",
+  //   "when": "suggestWidgetMultipleSuggestions && suggestWidgetVisible && textInputFocus"
+  // }
 ]

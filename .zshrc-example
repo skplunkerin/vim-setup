@@ -1,0 +1,23 @@
+# Load profile data
+[[ -s "$HOME/.profile" ]] && source "$HOME/.profile"
+[[ -s "$HOME/.zsh_profile" ]] && source "$HOME/.zsh_profile"
+
+# ngrok auto-complete pre-steps:
+# In order to get ngrok auto complete to work, I first had to follow this SO
+# answer, but was able to comment out the following lines the command added
+# (see my comment to the answer). Now the below auto complete works.
+# https://stackoverflow.com/a/67912978/1180523
+#
+## The following lines were added by compinstall
+#zstyle :compinstall filename '/Users/chrisreynolds/.zshrc'
+#autoload -Uz compinit
+#compinit
+## End of lines added by compinstall
+
+# ngrok auto-complete
+# https://ngrok.com/docs/ngrok-agent/ngrok#command-ngrok-completion
+if command -v ngrok &>/dev/null; then
+  eval "$(ngrok completion)"
+fi
+# If above doesn't work (or stops working), the below should work:
+# [[ /usr/local/bin/ngrok ]] && source <(ngrok completion)

@@ -1,0 +1,76 @@
+dev:
+  root: "~/projects" # <-- Change to your path
+  launch_strategy: in_place
+  layout:
+    -
+      tabs:
+        -
+          layout:
+            -
+              - cd javascript-project && nvm use
+            -
+              - cd javascript-project && nvm use
+        -
+          layout:
+            -
+              - cd react-native-project && nvm use
+            -
+              - cd react-native-project && nvm use
+        -
+          layout:
+            -
+              - cd react-project && nvm use
+              - cd react-project && nvm use
+            -
+              - cd react-project && nvm use
+        -
+          layout:
+            -
+              - cd rails-project && nvm use
+        -
+          layout:
+            -
+              - cd rails-project && nvm use
+            -
+              - cd rails-project && nvm use
+        -
+          layout:
+            -
+              - cd go-project
+            -
+              - cd go-project
+        -
+          layout:
+            -
+              - cd go-project2
+            -
+              - cd go-project2
+rails-project:
+  root: "~/projects/rails-project" # <-- Change to your path
+  launch_strategy: in_place
+  layout:
+    -
+      tabs:
+        -
+          layout:
+            -
+              - bundle && rails db:migrate && ./bin/rails s
+            #-
+            #  - bundle exec sidekiq -c 5 -v -q low -q sms_message
+            #-
+            #  - bundle exec clockwork config/clock.rb
+            #  - bundle exec sidekiq -v -C config/sidekiq.yml
+react-project:
+  root: "~/projects/react-project"
+  launch_strategy: in_place
+  layout:
+    -
+      tabs:
+        -
+          layout:
+            -
+              - nvm use && npm start
+            -
+              - git fetch && git status
+            -
+              - git diff

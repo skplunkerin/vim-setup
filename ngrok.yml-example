@@ -1,0 +1,23 @@
+# Run all:
+#   cd ~/ && ngrok start --all
+# Run one:
+#   cd ~/ && ngrok start project1 
+authtoken: [GET-FROM-NGROK-OR-LOGIN-VIA-CLI-COMMANDS]
+tunnels:
+    rails: # rails app
+        subdomain: rails-api
+        # subdomain: skipio-chris
+        # hostname: skipio-chris.ngrok.com
+        # host_header: rails-app.skipio-chris.ngrok.com
+        proto: http
+        addr: 3000
+    react: # react app
+        subdomain: react-dev
+        proto: http
+        addr: 3001
+    go:
+        subdomain: go-api
+        proto: http
+        addr: 8080
+version: "2"
+region: us

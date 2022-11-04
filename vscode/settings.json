@@ -90,6 +90,42 @@
       ]
     },
     /*
+     * Toggles a line breakpoint on/off.
+     */
+    {
+      "before": ["g", "b", "b"],
+      "after": [],
+      "commands": [
+        {
+          "command": "editor.debug.action.toggleBreakpoint"
+        }
+      ],
+      "when": "vim.mode == 'Normal' && debuggersAvailable && editorTextFocus"
+    },
+    /*
+     * Goes to next/previous line breakpoint.
+     */
+    {
+      "before": ["g", "b", "n"],
+      "after": [],
+      "commands": [
+        {
+          "command": "editor.debug.action.goToNextBreakpoint"
+        }
+      ],
+      "when": "vim.mode == 'Normal' && debuggersAvailable && editorTextFocus"
+    },
+    {
+      "before": ["g", "b", "p"],
+      "after": [],
+      "commands": [
+        {
+          "command": "editor.debug.action.goToPreviousBreakpoint"
+        }
+      ],
+      "when": "vim.mode == 'Normal' && debuggersAvailable && editorTextFocus"
+    },
+    /*
     This is a workaround for VSCodeVim's issue #2007:
     Pressing 'u' will undo all the stack - https://github.com/VSCodeVim/Vim/issues/2007
     */
@@ -144,16 +180,133 @@
   // this causes false Go errors in `Problems` console tab:
   // "go.useLanguageServer": true,
   "workbench.editor.enablePreview": false,
-  "editor.formatOnSave": true,
-  "editor.minimap.scale": 1,
-  // "editor.minimap.size": "fit",
-  "editor.minimap.size": "proportional",
-  // "editor.minimap.size": "fill",
   "gitlens.defaultDateFormat": "YYYY-MM-DDTHH:mm:ssZ",
   "gitlens.defaultDateShortFormat": "YYYY-MM-DD",
   "salesforcedx-vscode-apex.java.home": "/Library/Java/JavaVirtualMachines/zulu-11.jdk/Contents/Home/",
   "workbench.startupEditor": "newUntitledFile",
   "explorer.confirmDragAndDrop": false,
+  "workbench.colorCustomizations": {
+    // Mini Map
+    // "minimap.background": "#00000055"
+    // Vertical Guide Ruler
+    // (replaced by having separate colors defined in editor.rulers)
+    // "editorRuler.foreground": "#FF786A",
+    "[EVA Unit-1 Theme V2]": {
+      // "principal-Colors": {
+      //   "purple-deep": "#7F47CF",
+      //   "purple": "#986FD8",
+      //   "purple-cake": "#B0A8DB",
+      //   "yellow": "#F5AD43",
+      //   "green-cake": "#55ff00",
+      //   "green": "#58BD3C",
+      //   "green-deep": "#4BA428",
+      //   "pink": "#fa04d3",
+      //   "pink-cake": "#c99ec7"
+      // },
+
+      // Search input text selection
+      "selection.background": "#fa04d18f",
+      // Input font color
+      // "input.foreground": "#ff0000",
+      // Input border
+      // "input.border": "#ff0000",
+      // Input background color
+      // "input.background": "#ff0000",
+      // Input placeholder text (when no text in field)
+      // "input.placeholderForeground": "#ff0000",
+
+      // "list.highlightForeground": "#ff0000",
+      // "list.focusHighlightForeground": "#ff0000",
+      // "inputOption.activeBorder": "#ff0000",
+      // "sideBar.background": "#ff0000",
+      // "sideBar.foreground": "#ff0000",
+      // "sideBar.border": "#ff0000",
+      // "sideBar.dropBackground": "#ff0000",
+      // "sideBarTitle.foreground": "#ff0000",
+      // "sideBarSectionHeader.background": "#ff0000",
+      // "sideBarSectionHeader.foreground": "#ff0000",
+      // "editor.selectionBackground": "#ff0000",
+      // "editor.selectionForeground": "#ff0000",
+      // "editor.inactiveSelectionBackground": "#ff0000",
+      // "editor.selectionHighlightBackground": "#ff0000",
+      // "editor.selectionHighlightBorder": "#ff0000",
+      // "editorOverviewRuler.selectionHighlightForeground": "#ff0000",
+      // "editorSuggestWidget.selectedBackground": "#ff0000",
+      // "peekViewResult.selectionBackground": "#ff0000",
+      // "peekViewResult.selectionForeground": "#ff0000",
+      // "terminal.selectionBackground": "#ff0000",
+      // "list.activeSelectionBackground": "#ff0000",
+      // "list.activeSelectionForeground": "#ff0000",
+      // "list.inactiveSelectionBackground": "#ff0000",
+      // "list.inactiveSelectionForeground": "#ff0000",
+
+      // "sideBar.background": "#347890"
+      // This controls main selection color:
+      "editor.selectionBackground": "#8047cf71", // Default: "#e091ff2f"
+      // This controls the matching highlights (of selection) color:
+      // "editor.selectionHighlightBackground": "#fa04d3",
+      // "editor.selectionHighlightBorder": "#1aff0080",
+      "editor.selectionHighlightBorder": "#fa04d3",
+
+      // This is for selected text in inactive editor panes
+      // "editor.inactiveSelectionBackground": "#d9ff00",
+
+      // Editor line number colors:
+      "editorLineNumber.foreground": "#93b853", // Default: "#93b853"
+      "editorLineNumber.activeForeground": "#fa04d3" // Default: "#8355a0"
+    },
+    "[Girl, Do you like Unicorn?]": {
+      // Main hot pink: "#d81e5b"
+
+      // Search input text selection
+      "selection.background": "#fa04d18f",
+      "editor.selectionBackground": "#8047cf71",
+
+      // This controls the matching highlights (of selection) color:
+      "editor.selectionHighlightBorder": "#d81e5b",
+
+      // This is for selected text in inactive editor panes
+      "editor.inactiveSelectionBackground": "#d81e5b",
+
+      // Editor line number colors:
+      // "editorLineNumber.foreground": "#93b853",
+      // "editorLineNumber.activeForeground": "#fa04d3"
+      "editorLineNumber.foreground": "#fa04d3",
+      "editorLineNumber.activeForeground": "#93b853",
+
+      // Hovering over list/tree items (like the debug console, popup menu
+      // items)
+      "list.hoverBackground": "#d81e5c83" // Default?: "#d81e5b"
+    }
+  },
+  "window.title": "${activeEditorMedium}${separator}${rootName}",
+  "vim.neovimPath": "/usr/local/bin/nvim",
+  "vim.enableNeovim": true,
+  "vim.ignorecase": false,
+  "ruby.useLanguageServer": true,
+  "ruby.intellisense": "rubyLocate",
+  // "ruby.lint": {},
+  "ruby.codeCompletion": "rcodetools",
+  "ruby.languageServer": {},
+  /*
+  Sort cmd+P (and equivalent search boxes) by recency first
+  (instead of relevance first)
+  */
+  "search.quickOpen.history.filterSortOrder": "recency",
+  "search.searchOnType": false,
+  "explorer.autoReveal": false,
+  "vim.leader": ",",
+  "vim.vimrc.enable": true,
+  "vim.hlsearch": true,
+  // "go.gopath": "/usr/local/go/bin/go",
+  // "vim.incsearch": false
+  "debug.console.wordWrap": true,
+  "go.toolsManagement.autoUpdate": true,
+  "editor.formatOnSave": true,
+  "editor.minimap.scale": 1,
+  // "editor.minimap.size": "fit",
+  "editor.minimap.size": "proportional",
+  // "editor.minimap.size": "fill",
   /*
   Set vertical ruler
   https://stackoverflow.com/questions/29968499/vertical-rulers-in-visual-studio-code
@@ -171,40 +324,23 @@
       "color": "#E4473A"
     }
   ],
-  "workbench.colorCustomizations": {
-    // Mini Map
-    "minimap.background": "#00000055"
-    // Vertical Guide Ruler
-    // (replaced by having separate colors defined in editor.rulers)
-    // "editorRuler.foreground": "#FF786A",
-  },
-  "window.title": "${activeEditorMedium}${separator}${rootName}",
-  "vim.neovimPath": "/usr/local/bin/nvim",
-  "vim.enableNeovim": true,
-  "vim.ignorecase": false,
-  "ruby.intellisense": "rubyLocate",
-  // "ruby.lint": {},
-  /*
-  Sort cmd+P (and equivalent search boxes) by recency first
-  (instead of relevance first)
-  */
-  "search.quickOpen.history.filterSortOrder": "recency",
-  "search.searchOnType": false,
-  "explorer.autoReveal": false,
-  "vim.leader": ",",
-  "vim.vimrc.enable": true,
   "editor.parameterHints.enabled": false,
   "editor.find.cursorMoveOnType": false,
-  "vim.hlsearch": true,
   "editor.suggest.statusBar.visible": true,
-  // "go.gopath": "/usr/local/go/bin/go",
-  // "vim.incsearch": false
-  "debug.console.wordWrap": true,
-  "go.toolsManagement.autoUpdate": true,
   "editor.insertSpaces": true,
   "editor.tabSize": 2,
+  // don't even try, you can't control how csharp formatting works 🙄
+  // To get the correct 4 spaces indentation working, I had to:
+  //  1. disable the "Csharp > Format: Enable" setting
+  //  2. install the CSharpier extension, and install the CSharpier globally
+  //     dependency
+  // "[csharp]": {
+  //   // "editor.defaultFormatter": "ms-dotnettools.csharp",
+  //   "editor.insertSpaces": true,
+  //   "editor.tabSize": 10,
+  // },
   "[ruby]": {
-    "editor.insertSpaces": false,
+    "editor.insertSpaces": true,
     "editor.tabSize": 2,
     "editor.autoIndent": "advanced"
   },
@@ -251,8 +387,11 @@
     "editor.rulers": [50]
   },
   "cSpell.userWords": [
+    "acuityscheduling",
+    "APIURL",
     "appts",
     "authed",
+    "automations",
     "awseb",
     "awslogs",
     "bcrypt",
@@ -270,17 +409,23 @@
     "Codeship",
     "Confs",
     "Conslt",
+    "CONTRIBSYS",
     "cooldown",
     "creds",
     "CSVs",
+    "csvutil",
+    "datetime",
     "dbdata",
     "DECR",
+    "deletable",
     "devpassword",
     "devserver",
     "dftxtrvkx",
+    "discoverability",
     "dockerized",
     "dockerizing",
     "Dockerrun",
+    "dropdowns",
     "dyno",
     "ebcli",
     "ebextensions",
@@ -288,6 +433,7 @@
     "ebitenutil",
     "Enqueable",
     "Enqueuer",
+    "everytime",
     "Favicons",
     "freemium",
     "Getenv",
@@ -304,10 +450,16 @@
     "guregu",
     "gzipped",
     "hajimehoshi",
+    "Hasher",
+    "HMAC",
+    "httpmock",
     "hubspotcrm",
     "IMDS",
     "Infof",
     "Infusionsoft",
+    "inpututil",
+    "integrationtest",
+    "intouch",
     "ioutil",
     "iowait",
     "jessewardle",
@@ -316,14 +468,20 @@
     "Keap",
     "keyname",
     "Keyspace",
+    "Klaviyo",
     "ldflags",
+    "Lerp",
     "loadbalancer",
+    "logrus",
     "Mashery",
+    "Mathf",
+    "Metabase",
     "Mindbody",
     "minifier",
     "mockgen",
     "Moralis",
     "ngrok",
+    "opentype",
     "perr",
     "pgconn",
     "pgcrypto",
@@ -333,19 +491,25 @@
     "postgres",
     "Printf",
     "procstat",
+    "providerstest",
+    "proxying",
     "Pseudocode",
     "psql",
     "rdata",
     "Repos",
+    "reqs",
     "requirepass",
     "resps",
+    "Rigidbody",
     "Roadmap",
     "SETEX",
     "signup",
-    "Skipio",
     "Skipio's",
+    "Skipio",
+    "skipiotest",
     "SMEMBERS",
     "Sprintf",
+    "spritesheet",
     "SREM",
     "Stargate",
     "stdouterr",
@@ -354,7 +518,10 @@
     "Structs",
     "targetgroup",
     "taskdefinition",
+    "testflight",
     "testhelper",
+    "tilemap",
+    "tilemaps",
     "timestamptz",
     "totalcpu",
     "Trello",
@@ -362,9 +529,12 @@
     "Unmapper",
     "unmarshalling",
     "Upsert",
+    "upserted",
     "Upserts",
     "utfbom",
+    "Wardle",
     "Warnf",
+    "wasd",
     "Zoho's",
     "zohocrmv",
     "ZRANGE"
@@ -375,7 +545,7 @@
   "editor.cursorStyle": "line",
   "editor.lineNumbers": "on",
   "editor.wordSeparators": "/\\()\"':,.;<>~!@#$%^&*|+=[]{}`?-",
-  "editor.wordWrap": "off",
+  "editor.wordWrap": "wordWrapColumn",
   "editor.renderWhitespace": "all",
   // TODO: figure out how to add a custom dictionary to cSpell, where the
   // dropdown option of "Add: "{x}" to {custom} dictionary" is available.
@@ -402,5 +572,43 @@
   },
   "editor.hover.delay": 2000,
   "codestream.serverUrl": "https://api.codestream.com",
-  "codestream.email": "reynolds87chris@gmail.com"
+  "codestream.email": "reynolds87chris@gmail.com",
+  "vim.foldfix": true,
+  "vim.mouseSelectionGoesIntoVisualMode": false,
+  "redhat.telemetry.enabled": false,
+  "go.delveConfig": {
+    "showGlobalVariables": true
+  },
+  "settingsSync.ignoredExtensions": [
+    "ms-dotnettools.csharp",
+    "csharpier.csharpier-vscode",
+    "kleber-swf.unity-code-snippets",
+    "fudge.auto-using"
+  ],
+  // To fix C# errors:
+  // 1. revert extension version to v1.24.4
+  // 2. Set "useGlobalMono" to "always" (this was deprecated in v1.25.0)
+  "omnisharp.useGlobalMono": "always",
+  // "omnisharp.useMono": true,
+  "omnisharp.projectLoadTimeout": 10,
+  "omnisharp.monoPath": "/Library/Frameworks/Mono.framework/Versions/Current",
+  "csharp.format.enable": false,
+  "csharp.inlayHints.parameters.enabled": true,
+  "workbench.iconTheme": "vscode-icons",
+  "files.exclude": {
+    "**/.DS_Store": false,
+    "**/.git": false
+  },
+  "eslint.alwaysShowStatus": true,
+  "eslint.debug": true,
+  "vsicons.dontShowNewVersionMessage": true,
+  "vscode-erb-beautify.executePath": "/Users/chrisreynolds/.rvm/gems/ruby-3.1.2/bin/htmlbeautifier",
+  "editor.useTabStops": false,
+  "editor.detectIndentation": false,
+  "extensions.experimental.affinity": {
+    "vscodevim.vim": 1
+  },
+  "workbench.colorTheme": "EVA Unit-1 Theme V2"
+  // "omnisharp.path": "/Users/meowser/.vscode/extensions/ms-dotnettools.csharp-1.25.0-darwin-x64/.omnisharp/1.39.0-net6.0/OmniSharp",
+  // "omnisharp.useModernNet": false, // default: true
 }
