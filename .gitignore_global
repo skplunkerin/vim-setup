@@ -1,0 +1,5 @@
+# Ignore all of my local test files with this kind of name:
+z_local_testing--*
+# Need to also do the following, in case any .gitignore utilizes "!*/":
+# https://stackoverflow.com/questions/987142/make-gitignore-ignore-everything-except-a-few-files
+**/z_local_testing--*/**/*

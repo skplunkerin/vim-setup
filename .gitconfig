@@ -1,0 +1,38 @@
+[user]
+	name = Skplunkerin
+	email = skplunkerin@pm.me
+[push]
+	default = current
+[pull]
+	default = current
+	rebase = false
+[core]
+	fileMode = false
+	editor = vim
+	; editor = code --wait
+	autocrlf = input
+  ; might need to put the full path in here, like:
+	; excludesfile = /Users/yourname/.gitignore_global
+	excludesfile = ~/.gitignore_global
+[merge]
+	tool = vimdiff
+[color]
+	ui = true
+[credential]
+	helper = cache --timeout=900
+[diff]
+  ; tool = vimdiff
+  tool = vscode
+[difftool "vscode"]
+  ; cmd = code --wait $MERGED
+  cmd = code --wait --diff $LOCAL $REMOTE
+
+; Trying get diff working with VSCode:
+; https://github.com/eamodio/vscode-gitlens/issues/671
+; [diff]
+;   ; tool = vscode
+;   tool = vimdiff
+; [mergetool "vscode"]
+;   cmd = code --wait $MERGED
+[init]
+	defaultBranch = master
