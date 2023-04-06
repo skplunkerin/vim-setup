@@ -482,42 +482,5 @@
     "key": "ctrl+o",
     "command": "-lineBreakInsert",
     "when": "textInputFocus && !editorReadonly"
-  },
-  {
-    "key": "cmd+2",
-    "command": "-workbench.action.focusSecondEditorGroup"
-  },
-  {
-    "key": "cmd+3",
-    "command": "workbench.action.focusThirdEditorGroup"
-  },
-  {
-    "key": "cmd+3",
-    "command": "-workbench.action.focusThirdEditorGroup"
-  },
-  {
-    "key": "cmd+2",
-    "command": "workbench.action.focusSecondEditorGroup"
-  },
-  // Unsure of these default bindings (particularly "ctrl+p")
-  // {
-  //   "key": "ctrl+n",
-  //   "command": "-cursorDown",
-  //   "when": "textInputFocus"
-  // },
-  // {
-  //   "key": "ctrl+p",
-  //   "command": "-cursorUp",
-  //   "when": "textInputFocus"
-  // },
-  // {
-  //   "key": "ctrl+p",
-  //   "command": "-showPrevParameterHint",
-  //   "when": "editorFocus && parameterHintsMultipleSignatures && parameterHintsVisible"
-  // },
-  // {
-  //   "key": "ctrl+p",
-  //   "command": "-selectPrevSuggestion",
-  //   "when": "suggestWidgetMultipleSuggestions && suggestWidgetVisible && textInputFocus"
-  // }
+  }
 ]
