@@ -1,4 +1,4 @@
-dev:
+dev-example:
   root: "~/projects" # <-- Change to your path
   launch_strategy: in_place
   layout:
@@ -45,7 +45,7 @@ dev:
               - cd go-project2
             -
               - cd go-project2
-rails-project:
+rails-project-example:
   root: "~/projects/rails-project" # <-- Change to your path
   launch_strategy: in_place
   layout:
@@ -60,7 +60,7 @@ rails-project:
             #-
             #  - bundle exec clockwork config/clock.rb
             #  - bundle exec sidekiq -v -C config/sidekiq.yml
-react-project:
+react-project-example:
   root: "~/projects/react-project"
   launch_strategy: in_place
   layout:
