@@ -258,6 +258,21 @@
     "command": "workbench.action.navigateDown"
   },
   /*
+  Attempt to fix current cursor jump bug via non vim tab movement, based on
+  this suggestion:
+  https://github.com/VSCodeVim/Vim/issues/8200#issuecomment-1493346536
+  */
+  {
+    "key": "shift+cmd+[",
+    "command": "workbench.action.previousEditor",
+    // "when": "vim.mode == 'Normal' && textInputFocus"
+  },
+  {
+    "key": "shift+cmd+]",
+    "command": "workbench.action.nextEditor",
+    // "when": "vim.mode == 'Normal' && textInputFocus"
+  },
+  /*
   Navigate between File Explorer, and back to last pane/file/line
   https://github.com/microsoft/vscode/issues/4557#issuecomment-276960041
   https://vscodevim.slack.com/archives/C0ENQMTUM/p1583934716062300
@@ -482,5 +497,13 @@
     "key": "ctrl+o",
     "command": "-lineBreakInsert",
     "when": "textInputFocus && !editorReadonly"
+  },
+  {
+    "key": "shift+cmd+[",
+    "command": "-workbench.action.previousEditor"
+  },
+  {
+    "key": "shift+cmd+]",
+    "command": "-workbench.action.nextEditor"
   }
 ]

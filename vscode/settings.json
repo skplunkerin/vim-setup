@@ -173,6 +173,18 @@
     {
       "before": ["g", "i"],
       "commands": ["editor.action.goToImplementation"]
+    },
+    // Attempt to fix current cursor jump bug based on this suggestion:
+    // https://github.com/VSCodeVim/Vim/issues/8200#issuecomment-1493346536
+    {
+      "before": ["g", "t"],
+      "after": ["<Esc>"],
+      "commands": ["workbench.action.nextEditor"]
+    },
+    {
+      "before": ["g", "T"],
+      "after": ["<Esc>"],
+      "commands": ["workbench.action.previousEditor"]
     }
   ],
   "vim.timeout": 250,
@@ -728,7 +740,12 @@
   "vim.incsearch": false,
   "solidity.telemetry": true,
   "window.zoomLevel": -0.5,
-  "explorer.compactFolders": false
+  "explorer.compactFolders": false,
+  "terminal.integrated.enableMultiLinePasteWarning": false,
+  "[prisma]": {
+    "editor.defaultFormatter": "Prisma.prisma"
+  },
+  "prettier.enableDebugLogs": true
   // "omnisharp.path": "/Users/meowser/.vscode/extensions/ms-dotnettools.csharp-1.25.0-darwin-x64/.omnisharp/1.39.0-net6.0/OmniSharp",
   // "omnisharp.useModernNet": false, // default: true
 }
