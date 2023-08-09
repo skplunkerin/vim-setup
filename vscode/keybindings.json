@@ -21,6 +21,13 @@
     "key": "cmd+alt+t",
     "command": "go.debug.cursor"
   },
+  // I keep hitting this by accident, even though I've not used this before to
+  // trigger a Go test nearest the cursor position.
+  {
+    "key": "cmd+enter",
+    "command": "go.debug.cursor",
+    "when": "resourceFilename =~ /_test\\.go$/"
+  },
   {
     "key": "alt+cmd+t",
     "command": "-workbench.action.closeOtherEditors"

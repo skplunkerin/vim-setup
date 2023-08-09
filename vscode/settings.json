@@ -78,6 +78,20 @@
       ]
     },
     /*
+    Toggle fold
+    */
+    {
+      "before": ["g", "f", "f"],
+      "after": [],
+      "commands": [
+        {
+          // "key": "cmd+k cmd+l",
+          "command": "editor.toggleFold",
+          "when": "editorTextFocus && !isInEmbeddedEditor && foldingEnabled"
+        }
+      ]
+    },
+    /*
     [Line Note extension] Open note on current line:
     */
     {
@@ -187,7 +201,7 @@
       "commands": ["workbench.action.previousEditor"]
     }
   ],
-  "vim.timeout": 250,
+  "vim.timeout": 750,
   "go.formatTool": "goimports",
   // this causes false Go errors in `Problems` console tab:
   // "go.useLanguageServer": true,
@@ -359,7 +373,13 @@
   "[ruby]": {
     "editor.insertSpaces": true,
     "editor.tabSize": 2,
-    "editor.autoIndent": "advanced"
+    "editor.autoIndent": "advanced",
+    "editor.defaultFormatter": "esbenp.prettier-vscode",
+    // "editor.defaultFormatter": "vscode.ruby",
+    // "editor.defaultFormatter": "Shopify.ruby-lsp",
+    "editor.formatOnType": true,
+    "files.insertFinalNewline": true,
+    "editor.semanticHighlighting.enabled": true
   },
   "[rust]": {
     "editor.insertSpaces": true,
@@ -417,7 +437,9 @@
     "apitalize",
     "APIURL",
     "appts",
+    "Archivable",
     "authed",
+    "auths",
     "automations",
     "awseb",
     "awslogs",
@@ -455,11 +477,13 @@
     "csvutil",
     "cypherpunk",
     "cypherpunks",
+    "daisyui",
     "datetime",
     "dbdata",
     "DDTHH",
     "debogger",
     "DECR",
+    "Degen",
     "deletable",
     "devpassword",
     "devs",
@@ -493,6 +517,7 @@
     "fastjson",
     "FAUSTWP",
     "Favicons",
+    "fkey",
     "freemium",
     "Getenv",
     "gmail",
@@ -536,12 +561,15 @@
     "jessewardle",
     "journaling",
     "JSON's",
+    "jszwec",
     "jwardle",
     "Keap",
     "keccak",
     "keyname",
     "Keyspace",
+    "keytool",
     "Klaviyo",
+    "Kyzen",
     "ldflags",
     "Lerp",
     "linenote",
@@ -550,7 +578,9 @@
     "logrus",
     "Mashery",
     "Mathf",
+    "Mayes",
     "meowser",
+    "Merch",
     "Merkle",
     "Metabase",
     "metricstest",
@@ -582,6 +612,7 @@
     "Pinia",
     "Pipeliner",
     "PKCE",
+    "pkey",
     "Pleitez",
     "postgres",
     "Printf",
@@ -597,6 +628,7 @@
     "Repos",
     "reqs",
     "requirepass",
+    "resourcetest",
     "resps",
     "retarget",
     "Rigidbody",
@@ -605,6 +637,7 @@
     "Satoshi",
     "secp",
     "SETEX",
+    "Shuaib",
     "sidekiq",
     "signin",
     "signup",
@@ -624,7 +657,9 @@
     "struct",
     "Structs",
     "subforums",
+    "superjson",
     "Syncer",
+    "synthwave",
     "tailwindcss",
     "targetgroup",
     "taskdefinition",
@@ -632,14 +667,17 @@
     "testhelper",
     "tilemap",
     "tilemaps",
+    "timeframe",
     "Timelock",
     "timestamptz",
     "Topher",
     "totalcpu",
     "Trello",
+    "tsbuildinfo",
     "txos",
     "Udemy",
     "Unmapper",
+    "Unmarshaled",
     "unmarshalling",
     "Upsert",
     "upserted",
@@ -723,6 +761,19 @@
     "**/.DS_Store": false,
     "**/.git": false
   },
+  "github.copilot.advanced": {
+    "indentationMode": {
+      "*": true,
+      "go": true,
+      "javascript": true,
+      "javascriptreact": true,
+      "jsx": true,
+      "python": true,
+      "ruby": true,
+      "typescript": true,
+      "typescriptreact": true
+    }
+  },
   "eslint.alwaysShowStatus": true,
   "eslint.debug": true,
   "vsicons.dontShowNewVersionMessage": true,
@@ -739,13 +790,29 @@
   "javascript.updateImportsOnFileMove.enabled": "never",
   "vim.incsearch": false,
   "solidity.telemetry": true,
-  "window.zoomLevel": -0.5,
   "explorer.compactFolders": false,
   "terminal.integrated.enableMultiLinePasteWarning": false,
   "[prisma]": {
     "editor.defaultFormatter": "Prisma.prisma"
   },
-  "prettier.enableDebugLogs": true
+  "prettier.enableDebugLogs": true,
+  "editor.inlineSuggest.enabled": true,
+  "application.shellEnvironmentResolutionTimeout": 45,
+  "window.zoomLevel": -0.75,
+  "ruby.pathToBundler": "/Users/chrisreynolds/.rvm/gems/ruby-3.2.2/bin/bundle",
+  // "ruby.pathToBundler": "~/.rvm/gems/ruby-3.2.2/bin/bundle",
+  "ruby.locate": {
+    "exclude": "{**/@(test|spec|tmp|.*),**/@(test|spec|tmp|.*)/**,**/*_spec.rb}",
+    "include": "**/*.rb"
+  },
+  "ruby.interpreter.commandPath": "/Users/chrisreynolds/.rvm/rubies/ruby-3.2.2/bin",
+  "rubyLsp.customRubyCommand": "/Users/chrisreynolds/.rvm/rubies/ruby-3.2.2/bin/ruby",
+  "settingsSync.ignoredSettings": ["rubyLsp.customRubyCommand"],
+  "[jsonc]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
+  },
+  "rubyLsp.rubyVersionManager": "rvm",
+  "typescript.updateImportsOnFileMove.enabled": "always"
   // "omnisharp.path": "/Users/meowser/.vscode/extensions/ms-dotnettools.csharp-1.25.0-darwin-x64/.omnisharp/1.39.0-net6.0/OmniSharp",
   // "omnisharp.useModernNet": false, // default: true
 }
