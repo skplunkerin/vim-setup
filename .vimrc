@@ -1,22 +1,24 @@
-" This enables the pathogen plugin (which will auto load all vim scripts
-" inside of bundle/)
-execute pathogen#infect()
-syntax on
-
-" filetype plugin indent on
-filetype plugin on
-
-" auto open NERDTree when vim opens file, and default to right window
-autocmd VimEnter * NERDTree | wincmd p
-" trying to work with vim sessions, but nerdtree breaks it all :/
-" https://www.freecodecamp.org/news/learn-linux-vim-basic-features-19134461ab85/
-" https://www.vim.org/scripts/script.php?script_id=3150
-" https://www.google.com/search?q=vim+make+session+with+nerdtree&rlz=1C5CHFA_enUS852US852&oq=vim+make+session+with+nerdtree&aqs=chrome..69i57j33.7096j0j7&sourceid=chrome&ie=UTF-8
-" https://stackoverflow.com/questions/4226905/vim-nerdtree-not-recovered-in-session-restore
-" https://shapeshed.com/vim-netrw/
-" if !exists('SessionLoad')
-"   autocmd VimEnter * NERDTree | wincmd p
-" endif
+" Comment out for NeoVim LazyVim setup
+" Setting up LazyVim for NeoVim, shouldn't need NERDTree or other plugins
+" " This enables the pathogen plugin (which will auto load all vim scripts
+" " inside of bundle/)
+" execute pathogen#infect()
+" syntax on
+" 
+" " filetype plugin indent on
+" filetype plugin on
+" 
+" " auto open NERDTree when vim opens file, and default to right window
+" autocmd VimEnter * NERDTree | wincmd p
+" " trying to work with vim sessions, but nerdtree breaks it all :/
+" " https://www.freecodecamp.org/news/learn-linux-vim-basic-features-19134461ab85/
+" " https://www.vim.org/scripts/script.php?script_id=3150
+" " https://www.google.com/search?q=vim+make+session+with+nerdtree&rlz=1C5CHFA_enUS852US852&oq=vim+make+session+with+nerdtree&aqs=chrome..69i57j33.7096j0j7&sourceid=chrome&ie=UTF-8
+" " https://stackoverflow.com/questions/4226905/vim-nerdtree-not-recovered-in-session-restore
+" " https://shapeshed.com/vim-netrw/
+" " if !exists('SessionLoad')
+" "   autocmd VimEnter * NERDTree | wincmd p
+" " endif
 
 " The following is to better enable the functionality of omnicomplete (mainly
 " to disable the annoying default 'auto-fill with the first menu item'
@@ -64,8 +66,9 @@ set shiftwidth=2
 
 set autoindent
 
-" Maps keys to commands
-map <F2> :NERDTreeToggle<CR>
+" Comment out for NeoVim LazyVim setup
+" " Maps keys to commands
+" map <F2> :NERDTreeToggle<CR>
 
 " Testing <leader>
 " https://tuckerchapman.com/2018/06/16/how-to-use-the-vim-leader-key/
@@ -74,8 +77,9 @@ map <F2> :NERDTreeToggle<CR>
 " Default leaders is: \
 " To change, do (replace , with desired leader):
 :let mapleader = ","
-" e for explorer (to match VSCodeVim mapping)
-nnoremap <leader>e :NERDTreeToggle<CR>
+" Comment out for NeoVim LazyVim setup
+" " e for explorer (to match VSCodeVim mapping)
+" nnoremap <leader>e :NERDTreeToggle<CR>
 
 " Window movement (specific for Chromebook)
 nmap <C-a> :wincmd h<CR>
@@ -93,9 +97,10 @@ set encoding=utf-8
 " Doesn't work, I have been manually 'formating' using 
 " set filetype=type, filetype indent on, gg=G
 map <F3> :AutoFormat<CR>
-" Shows hidden (.filename) files in NERDTree
-let NERDTreeShowHidden=1
-let NERDTreeDirArrows=0
+" Comment out for NeoVim LazyVim setup
+" " Shows hidden (.filename) files in NERDTree
+" let NERDTreeShowHidden=1
+" let NERDTreeDirArrows=0
 
 " This will allow me to toggle on/off ":set paste" so I can paste without auto
 " indenting/commenting

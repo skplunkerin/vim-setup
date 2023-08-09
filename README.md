@@ -2,7 +2,9 @@
 
 1. clone project to home directory
 2. rename `~/vim-setup` to `~/.vim`
-3. run `sudo ln -s .vim/.vimrc` in your home directory to create a symbolic link
+3. Create symbolic links:
+   - run `sudo ln -s .vim/.vimrc` in your home directory
+   - run `sudo ln -s ~/.vim/nvim` in your home `~/.config/` directory
 4. create the following files from the examples in this repo and
    edit their contents to match your needs:
    - `cp .vim/.gitconfig ~/.gitconfig` (or just copy out relevant entries)
