@@ -1,9 +1,9 @@
 " Comment out for NeoVim LazyVim setup
 " Setting up LazyVim for NeoVim, shouldn't need NERDTree or other plugins
-" " This enables the pathogen plugin (which will auto load all vim scripts
-" " inside of bundle/)
-" execute pathogen#infect()
-" syntax on
+" This enables the pathogen plugin (which will auto load all vim scripts
+" inside of bundle/)
+execute pathogen#infect()
+syntax on
 " 
 " " filetype plugin indent on
 " filetype plugin on
@@ -67,8 +67,8 @@ set shiftwidth=2
 set autoindent
 
 " Comment out for NeoVim LazyVim setup
-" " Maps keys to commands
-" map <F2> :NERDTreeToggle<CR>
+" Maps keys to commands
+map <F2> :NERDTreeToggle<CR>
 
 " Testing <leader>
 " https://tuckerchapman.com/2018/06/16/how-to-use-the-vim-leader-key/
@@ -78,8 +78,8 @@ set autoindent
 " To change, do (replace , with desired leader):
 :let mapleader = ","
 " Comment out for NeoVim LazyVim setup
-" " e for explorer (to match VSCodeVim mapping)
-" nnoremap <leader>e :NERDTreeToggle<CR>
+" e for explorer (to match VSCodeVim mapping)
+nnoremap <leader>e :NERDTreeToggle<CR>
 
 " Window movement (specific for Chromebook)
 nmap <C-a> :wincmd h<CR>
@@ -98,9 +98,9 @@ set encoding=utf-8
 " set filetype=type, filetype indent on, gg=G
 map <F3> :AutoFormat<CR>
 " Comment out for NeoVim LazyVim setup
-" " Shows hidden (.filename) files in NERDTree
-" let NERDTreeShowHidden=1
-" let NERDTreeDirArrows=0
+" Shows hidden (.filename) files in NERDTree
+let NERDTreeShowHidden=1
+let NERDTreeDirArrows=0
 
 " This will allow me to toggle on/off ":set paste" so I can paste without auto
 " indenting/commenting

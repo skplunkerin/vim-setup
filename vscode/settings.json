@@ -212,6 +212,9 @@
   "workbench.startupEditor": "newUntitledFile",
   "explorer.confirmDragAndDrop": false,
   "workbench.colorCustomizations": {
+    // See this for reference:
+    // https://gist.github.com/skplunkerin/16d649990b15e336f3eaa4a6dbcd3c64
+    //
     // Mini Map
     // "minimap.background": "#00000055"
     // Vertical Guide Ruler
@@ -232,8 +235,21 @@
       // Add opacity to the minimap
       "minimap.background": "#1e1e1e70",
 
-      // Add left border line when editing inside indented code blocks
-      "editorIndentGuide.background": "#4BA428",
+      // Current row highlight where cursor is in editor
+      "editor.lineHighlightBackground": "#8047cf22",
+      "editor.lineHighlightBorder": "#ff796a5c",
+
+      // "editor.rangeHighlightBorder": "#F5AD43",
+      // "editorBracketMatch.border": "#F5AD43",
+      // "editorIndentGuide.background": "#F5AD43",
+      // "editorRuler.foreground": "#F5AD43",
+      // "editorOverviewRuler.border": "#F5AD43",
+
+      // Nested group border line:
+      // Left nested group border lines for all nested/indented code blocks and
+      // current active code block
+      "editorIndentGuide.background1": "#4ba4285b",
+      "editorIndentGuide.activeBackground1": "#4BA428",
 
       // Search input text selection
       "selection.background": "#fa04d18f",
@@ -374,7 +390,7 @@
     "editor.insertSpaces": true,
     "editor.tabSize": 2,
     "editor.autoIndent": "advanced",
-    "editor.defaultFormatter": "esbenp.prettier-vscode",
+    "editor.defaultFormatter": "rebornix.ruby",
     // "editor.defaultFormatter": "vscode.ruby",
     // "editor.defaultFormatter": "Shopify.ruby-lsp",
     "editor.formatOnType": true,
@@ -431,6 +447,7 @@
   },
   "cSpell.userWords": [
     "acuityscheduling",
+    "Alives",
     "Anki",
     "Apigee",
     "APIKEY",
@@ -497,6 +514,7 @@
     "doctoc",
     "dotnettools",
     "dropdowns",
+    "Dweck",
     "dyno",
     "ebcli",
     "ebextensions",
@@ -518,7 +536,9 @@
     "FAUSTWP",
     "Favicons",
     "fkey",
+    "foldfix",
     "freemium",
+    "futurette",
     "Getenv",
     "gmail",
     "gobuffalo",
@@ -561,6 +581,7 @@
     "jessewardle",
     "journaling",
     "JSON's",
+    "jsons",
     "jszwec",
     "jwardle",
     "Keap",
@@ -570,6 +591,7 @@
     "keytool",
     "Klaviyo",
     "Kyzen",
+    "labnotes",
     "ldflags",
     "Lerp",
     "linenote",
@@ -596,12 +618,14 @@
     "ngrok",
     "nomicfoundation",
     "nomiclabs",
+    "nsec",
     "nttools",
     "nuxt",
     "nuxtjs",
     "nvim",
     "omnisharp",
     "opentype",
+    "osascript",
     "otaku",
     "Pendo",
     "perr",
@@ -633,6 +657,7 @@
     "retarget",
     "Rigidbody",
     "Roadmap",
+    "Rollbar",
     "salesforcedx",
     "Satoshi",
     "secp",
@@ -641,6 +666,7 @@
     "sidekiq",
     "signin",
     "signup",
+    "skillset",
     "Skipio",
     "Skipio's",
     "skipiotest",
@@ -671,6 +697,7 @@
     "Timelock",
     "timestamptz",
     "Topher",
+    "TOPSECRT",
     "totalcpu",
     "Trello",
     "tsbuildinfo",
@@ -681,6 +708,7 @@
     "unmarshalling",
     "Upsert",
     "upserted",
+    "Upserter",
     "upserting",
     "Upserts",
     "URLJSON",
@@ -797,8 +825,7 @@
   },
   "prettier.enableDebugLogs": true,
   "editor.inlineSuggest.enabled": true,
-  "application.shellEnvironmentResolutionTimeout": 45,
-  "window.zoomLevel": -0.75,
+  "application.shellEnvironmentResolutionTimeout": 120,
   "ruby.pathToBundler": "/Users/chrisreynolds/.rvm/gems/ruby-3.2.2/bin/bundle",
   // "ruby.pathToBundler": "~/.rvm/gems/ruby-3.2.2/bin/bundle",
   "ruby.locate": {
@@ -812,7 +839,16 @@
     "editor.defaultFormatter": "esbenp.prettier-vscode"
   },
   "rubyLsp.rubyVersionManager": "rvm",
-  "typescript.updateImportsOnFileMove.enabled": "always"
+  "typescript.updateImportsOnFileMove.enabled": "always",
+  "dotnet.inlayHints.enableInlayHintsForParameters": true,
+  "github.copilot.enable": {
+    "*": true,
+    "plaintext": false,
+    "markdown": true,
+    "scminput": false
+  },
+  "workbench.editor.openSideBySideDirection": "down",
+  "window.zoomLevel": -0.75
   // "omnisharp.path": "/Users/meowser/.vscode/extensions/ms-dotnettools.csharp-1.25.0-darwin-x64/.omnisharp/1.39.0-net6.0/OmniSharp",
   // "omnisharp.useModernNet": false, // default: true
 }
