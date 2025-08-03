@@ -15,6 +15,21 @@
     "when": "vim.mode == 'Normal' && textInputFocus"
   },
   /*
+    Use ↓ or ↑ for the cursor to enter each wrapped line instead of Vim's
+    default behaviour of previous/next line (word wrap must be enabled).
+    (From: https://github.com/VSCodeVim/Vim/?tab=readme-ov-file#-faq)
+  */
+  {
+    "key": "up",
+    "command": "cursorUp",
+    "when": "editorTextFocus && vim.active && !inDebugRepl && !suggestWidgetMultipleSuggestions && !suggestWidgetVisible"
+  },
+  {
+    "key": "down",
+    "command": "cursorDown",
+    "when": "editorTextFocus && vim.active && !inDebugRepl && !suggestWidgetMultipleSuggestions && !suggestWidgetVisible"
+  },
+  /*
   Go: Test Nearest (at cursor position)
   */
   {
@@ -271,12 +286,12 @@
   */
   {
     "key": "shift+cmd+[",
-    "command": "workbench.action.previousEditor",
+    "command": "workbench.action.previousEditor"
     // "when": "vim.mode == 'Normal' && textInputFocus"
   },
   {
     "key": "shift+cmd+]",
-    "command": "workbench.action.nextEditor",
+    "command": "workbench.action.nextEditor"
     // "when": "vim.mode == 'Normal' && textInputFocus"
   },
   /*
@@ -512,5 +527,15 @@
   {
     "key": "shift+cmd+]",
     "command": "-workbench.action.nextEditor"
+  },
+  {
+    "key": "shift+alt+cmd+m",
+    "command": "markdown.extension.editing.toggleMath",
+    "when": "editorTextFocus && !editorReadonly && editorLangId =~ /^markdown$|^rmd$|^quarto$/"
+  },
+  {
+    "key": "cmd+m",
+    "command": "-markdown.extension.editing.toggleMath",
+    "when": "editorTextFocus && !editorReadonly && editorLangId =~ /^markdown$|^rmd$|^quarto$/"
   }
 ]

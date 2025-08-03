@@ -213,6 +213,12 @@
     }
   ],
   "vim.timeout": 750,
+  // Vim comma-separated list of motion keys that should wrap to next/previous line.
+  // Default: b,s
+  //
+  // Use left/right arrow keys in normal/visual mode, add: <,>
+  // Use left/right arrow keys in insert mode, add: [,]
+  "vim.whichwrap": "b,s,<,>,[,]",
   // this causes false Go errors in `Problems` console tab:
   // "go.useLanguageServer": true,
   "workbench.editor.enablePreview": false,
@@ -448,6 +454,12 @@
     "editor.formatOnSave": true
     // "editor.defaultFormatter": "golang.go"
   },
+  "[gdscript]": {
+    "editor.insertSpaces": false,
+    "editor.formatOnSave": true,
+    // "editor.defaultFormatter": "EddieDover.gdscript-formatter-linter"
+    "editor.defaultFormatter": "EddieDover.gdscript-formatter-linter"
+  },
   "[markdown]": {
     "editor.insertSpaces": true,
     "editor.tabSize": 2,
@@ -482,6 +494,7 @@
     "blitzjs",
     "bools",
     "Bootcamp",
+    "Brackeys",
     "bugsnag",
     "BUIDLing",
     "buildspec",
@@ -505,6 +518,7 @@
     "Codeship",
     "codestream",
     "collab",
+    "COLLADA",
     "Confs",
     "Conslt",
     "CONTRIBSYS",
@@ -565,6 +579,8 @@
     "Favicons",
     "fkey",
     "foldfix",
+    "freefly",
+    "freeflying",
     "freemium",
     "futurette",
     "fyne",
@@ -656,12 +672,14 @@
     "Moralis",
     "moralisweb",
     "MSCW",
+    "mwahaha",
     "Nakamoto",
     "neotokyo",
     "neotokyodevelopment",
     "neovim",
     "ngrok",
     "nmap",
+    "noclip",
     "nomicfoundation",
     "nomiclabs",
     "nosniff",
@@ -671,6 +689,7 @@
     "nuxtjs",
     "nvim",
     "omnisharp",
+    "onready",
     "openai",
     "opentype",
     "osascript",
@@ -718,6 +737,7 @@
     "salesforcedx",
     "salesqualifiedlead",
     "Satoshi",
+    "scancode",
     "scminput",
     "secp",
     "SETEX",
@@ -765,6 +785,7 @@
     "traceroute",
     "Trello",
     "tsbuildinfo",
+    "tscn",
     "txos",
     "Udemy",
     "Unmapper",
@@ -922,7 +943,6 @@
   "github.copilot.enable": {
     "*": false,
     "plaintext": false,
-    "markdown": true,
     "scminput": false
   },
   "workbench.editor.openSideBySideDirection": "down",
@@ -943,5 +963,8 @@
   "editor.stickyScroll.scrollWithEditor": false,
   "workbench.tree.stickyScrollMaxItemCount": 3,
   "prisma.showPrismaDataPlatformNotification": false,
-  "github.copilot.editor.enableAutoCompletions": true
+  "github.copilot.editor.enableAutoCompletions": true,
+  "godotTools.lsp.serverPort": 6005,
+  "markdown.extension.italic.indicator": "_",
+  "godotTools.editorPath.godot4": "/Applications/Godot.app"
 }
